@@ -1,3 +1,6 @@
+//Control setup
+controlsetup();
+
 //Moving
 
 move_dir = 0; //direction of the player, negative is left
@@ -10,3 +13,6 @@ y_speed = 0;	  //the players speed vertically
 gravity_speed = 0.45; //force of the gravity pulling the player down (ts works 0.5 pixels per frame)
 term_vel = 15; //terminal velocity, max player falling speed. i dont even need to write this, why am i typing this out. is it for someone whos gonna see the code? i guess so. but is anyone gonna see my code anyways though?
 jump_speed = -9;
+jump_max = 1;
+jump_count = 0;
+jump_holdtimer = 0;

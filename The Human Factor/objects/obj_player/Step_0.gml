@@ -1,5 +1,5 @@
 //Get inputs
-
+getcontrols();
 
 //X movement
 	//Direction
@@ -38,8 +38,13 @@
 	if y_speed > term_vel { y_speed = term_vel;	};
 	
 	//Jumping
-	if jumpkey_pressed && place_meeting(x, y+1, obj_wall)
+	if jumpkey_buffered && place_meeting(x, y+1, obj_wall)
 	{
+		//Reset buffer
+		jumpkey_buffered = false;
+		jumpkey_buffertimer = 0;
+		
+		//Set y speed to jump speed
 		y_speed = jump_speed;
 	}
 	
