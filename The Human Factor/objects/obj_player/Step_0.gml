@@ -37,9 +37,10 @@ getcontrols();
 	//Cap falling speed
 	if y_speed > term_vel { y_speed = term_vel;	};
 	
-	//resetting jumping
+	//resetting/preparing jumping
 	if (on_ground){
-		jump_count = 0;	
+		jump_count = 0;
+		jump_hold_timer = 0;
 	}
 	else {
 		//to make the player only be able to jump once in the air, even if theyre falling off a ledge
@@ -57,7 +58,7 @@ getcontrols();
 		jump_count++;
 		
 		//Set jump hold timer to equal to the number of frames in the jump frames code
-		jump_hold_timer = jump_hold_frames;
+		jump_hold_timer = jump_hold_frames[jump_count - 1];
 	}
 	//Cut off the jump by releasing the jump button
 	if !jumpkey
@@ -68,7 +69,7 @@ getcontrols();
 	if jump_hold_timer > 0 
 	{
 		//Constantly set the y speed to be the jumping speed
-		y_speed = jump_speed;
+		y_speed = jump_speed[jump_count - 1];
 		//Count down the jump timer thing
 		jump_hold_timer--;
 	}
@@ -82,6 +83,12 @@ getcontrols();
 		while !place_meeting(x, y + _pixelcheck, obj_wall)
 		{
 			y += _pixelcheck;
+		}
+		
+		//Bonk code 
+		if y_speed < 0
+		{
+			jump_hold_timer = 0;	
 		}
 		
 		//Set y speed 0 to collide
