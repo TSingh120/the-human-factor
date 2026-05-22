@@ -37,15 +37,40 @@ getcontrols();
 	//Cap falling speed
 	if y_speed > term_vel { y_speed = term_vel;	};
 	
-	//Jumping
-	if jumpkey_buffered && place_meeting(x, y+1, obj_wall)
+	//resetting jumping
+	if (on_ground){
+		jump_count = 0;	
+	}
+	else {
+		//to make the player only be able to jump once in the air, even if theyre falling off a ledge
+		if jump_count == 0 { jump_count = 1; }
+	}
+	
+	//starting the Jumping
+	if jumpkey_buffered && jump_count < jump_max
 	{
 		//Reset buffer
 		jumpkey_buffered = false;
 		jumpkey_buffertimer = 0;
 		
-		//Set y speed to jump speed
+		//set jump count higher for each jump
+		jump_count++;
+		
+		//Set jump hold timer to equal to the number of frames in the jump frames code
+		jump_hold_timer = jump_hold_frames;
+	}
+	//Cut off the jump by releasing the jump button
+	if !jumpkey
+	{
+		jump_hold_timer = 0;	
+	}
+	//Jumping based on how long the key is held
+	if jump_hold_timer > 0 
+	{
+		//Constantly set the y speed to be the jumping speed
 		y_speed = jump_speed;
+		//Count down the jump timer thing
+		jump_hold_timer--;
 	}
 	
 	//Y Collision
@@ -61,6 +86,15 @@ getcontrols();
 		
 		//Set y speed 0 to collide
 		y_speed = 0;
+	}
+	
+	//Check grounded state
+	if y_speed >= 0 && place_meeting(x, y+1, obj_wall)
+	{
+		on_ground = true;	
+	}
+	else {
+		on_ground = false;
 	}
 	
 	//Move

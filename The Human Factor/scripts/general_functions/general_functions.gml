@@ -10,15 +10,15 @@ function controlsetup()
 function getcontrols()
 {
 	//Directional inputs
-	rightkey = keyboard_check(ord("D")) + keyboard_check(vk_right);
+	rightkey = keyboard_check(ord("D"))
 	rightkey = clamp(rightkey, 0, 1);
-	leftkey = keyboard_check(ord("A")) + keyboard_check(vk_left);
+	leftkey = keyboard_check(ord("A"))
 	leftkey = clamp(leftkey, 0, 1);
 	
 	//Action Inputs
-	jumpkey_pressed = keyboard_check_pressed(ord("W")) + keyboard_check(vk_up);
+	jumpkey_pressed = keyboard_check_pressed(ord("W"))
 		jumpkey_pressed = clamp(jumpkey_pressed, 0, 1);
-	jumpkey = keyboard_check(ord("W")) + keyboard_check(vk_up);
+	jumpkey = keyboard_check(ord("W"))
 		jumpkey = clamp(jumpkey, 0, 1);
 		
 		//Jump key buffering
@@ -28,7 +28,7 @@ function getcontrols()
 		}
 		if jumpkey_buffertimer > 0
 		{
-			jumpkey_buffered = true;
+			jumpkey_buffered = 1;
 			jumpkey_buffertimer--;
 		}
 		else {
