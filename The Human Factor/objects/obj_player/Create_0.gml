@@ -38,7 +38,7 @@ jump_speed[1] = -6;
 
 //Coyote time
 //Hang time
-coyote_hangframes = 30;
+coyote_hangframes = 2;
 coyote_hangtimer = 0;
 
 //Jump buffer timer
