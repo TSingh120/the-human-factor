@@ -32,7 +32,16 @@ getcontrols();
 //Y movement
 
 	//Gravity
-	y_speed += gravity_speed;
+	if coyote_hangtimer > 0
+	{
+		//Count the timer down
+		coyote_hangtimer--;
+	} else {
+		//Apply gravity to the player
+		y_speed += gravity_speed;
+		//No longer on the ground or the extension
+		setonground(false);
+	}
 	
 	//Cap falling speed
 	if y_speed > term_vel { y_speed = term_vel;	};
@@ -52,13 +61,13 @@ getcontrols();
 	{
 		//Reset buffer
 		jumpkey_buffered = false;
-		jumpkey_buffertimer = 0;
-		
+		jumpkey_buffertimer = 0;		
 		//set jump count higher for each jump
-		jump_count++;
-		
+		jump_count++;		
 		//Set jump hold timer to equal to the number of frames in the jump frames code
 		jump_hold_timer = jump_hold_frames[jump_count - 1];
+		//Tell the player that they're no longer on the ground
+		setonground(false);
 	}
 	//Cut off the jump by releasing the jump button
 	if !jumpkey
@@ -98,10 +107,7 @@ getcontrols();
 	//Check grounded state
 	if y_speed >= 0 && place_meeting(x, y+1, obj_wall)
 	{
-		on_ground = true;	
-	}
-	else {
-		on_ground = false;
+		setonground(true);
 	}
 	
 	//Move

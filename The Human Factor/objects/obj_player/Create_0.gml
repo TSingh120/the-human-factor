@@ -1,3 +1,16 @@
+//custom functions for player
+function setonground(_val = true)
+{
+	if _val == true
+	{
+		on_ground = true;
+		coyote_hangtimer = coyote_hangframes;
+	} else {
+		on_ground = false;
+		coyote_hangtimer = 0;
+	}
+}
+
 //Control setup
 controlsetup();
 
@@ -15,8 +28,19 @@ term_vel = 15; //terminal velocity, max player falling speed. i dont even need t
 jump_max = 2;
 jump_count = 0;
 jump_hold_timer = 0;
+on_ground = true;
+
+//jumping successions
 jump_hold_frames[0] = 15;
 jump_speed[0] = -6;
 jump_hold_frames[1] = 8;
 jump_speed[1] = -6;
-on_ground = true;
+
+//Coyote time
+//Hang time
+coyote_hangframes = 30;
+coyote_hangtimer = 0;
+
+//Jump buffer timer
+coyote_jumpframes = 5;
+coyote_jumptimer = 0;
