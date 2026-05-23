@@ -42,5 +42,5 @@ coyote_hangframes = 2;
 coyote_hangtimer = 0;
 
 //Jump buffer timer
-coyote_jumpframes = 5;
+coyote_jumpframes = 8;
 coyote_jumptimer = 0;

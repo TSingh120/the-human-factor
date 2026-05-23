@@ -49,11 +49,12 @@ getcontrols();
 	//resetting/preparing jumping
 	if (on_ground){
 		jump_count = 0;
-		jump_hold_timer = 0;
+		coyote_jumptimer = coyote_jumpframes;
 	}
 	else {
 		//to make the player only be able to jump once in the air, even if theyre falling off a ledge
-		if jump_count == 0 { jump_count = 1; }
+		coyote_jumptimer--;
+		if jump_count == 0 && coyote_jumptimer <= 0 { jump_count = 1; }
 	}
 	
 	//starting the Jumping
