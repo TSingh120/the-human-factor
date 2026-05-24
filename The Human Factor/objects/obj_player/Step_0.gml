@@ -191,7 +191,7 @@ else if  (state == "winding") {
 	if action_timer <= 0 {
 		//winding finished, spawn hitbox
 		state = "idle";
-		var _hitbox = instance_create_layer(x + (facing_dir * 15), y , "Instances", obj_hitbox);
+		var _hitbox = instance_create_layer(x + (facing_dir * 8), y - 20 , "Instances", obj_hitbox);
 		_hitbox.owner = id;
 		_hitbox.action_type = "attack";
 		_hitbox.image_xscale = facing_dir;
@@ -214,7 +214,7 @@ else if state == "idle" {
 	{
 		state = "blocking";
 		action_timer = 10;
-		var _blockbox = instance_create_layer(x + (facing_dir * 10), y , "Instances", obj_hitbox);
+		var _blockbox = instance_create_layer(x + (facing_dir * 8), y - 20 , "Instances", obj_hitbox);
 		_blockbox.owner = id;
 		_blockbox.action_type = "block";
 		_blockbox.lifetime = 10;
