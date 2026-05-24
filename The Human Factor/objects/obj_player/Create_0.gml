@@ -56,3 +56,10 @@ coyote_hangtimer = 0;
 //Jump buffer timer
 coyote_jumpframes = 8;
 coyote_jumptimer = 0;
+
+//Wall sliding and jumping physics
+wall_slide_speed = 2;        //Max speed sliding down a wall
+wall_jump_hsp = 5;           //Horizontal push off the wall
+wall_jump_vsp = -10;          //Vertical push off the wall (matches first jump speed)
+wall_jump_timer = 0;         //Tracks how long controls are locked
+wall_jump_control_loss = 5; //Frames before player regains steering

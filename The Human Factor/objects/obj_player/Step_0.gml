@@ -16,7 +16,12 @@ getcontrols();
 	dash_duration--;
 	dash_cooldown--;
 	
-	if (dash_duration > 0)
+	if (wall_jump_timer > 0)
+	{
+		// Lock steering while wall jumping momentum carries the player
+		wall_jump_timer--;
+	} 
+	else if (dash_duration > 0)
 	{
 		x_speed = facing_dir * dash_speed;
 		y_speed = 0;
@@ -38,6 +43,7 @@ getcontrols();
 		
 		//Set x speed to 0 to collide
 		x_speed = 0;
+		
 	}
 
 	//Move
@@ -71,8 +77,44 @@ getcontrols();
 		if jump_count == 0 && coyote_jumptimer <= 0 { jump_count = 1; }
 	}
 	
-	//starting the Jumping
-	if jumpkey_buffered && jump_count < jump_max
+	//Wall sliding and jumping
+	var _onwall_left = place_meeting(x - 1, y, obj_wall);
+	var _onwall_right = place_meeting(x + 1, y, obj_wall);
+	var _onwall = _onwall_left || _onwall_right
+	
+		//Wall sliding
+		if (_onwall && !on_ground && y_speed > 0){
+			if (y_speed > wall_slide_speed){
+				y_speed = wall_slide_speed;	
+			}
+		}
+		
+		//Wall jumping
+		if (jumpkey_buffered && _onwall && !on_ground)
+		{
+			jumpkey_buffered = false;
+			jumpkey_buffertimer = 0;
+			
+			//Apply wall jump force
+			y_speed = wall_jump_vsp;
+			
+			if (_onwall_left) {
+				x_speed = wall_jump_hsp;
+			}
+			else {
+				x_speed = -wall_jump_hsp;
+			}
+			
+			// Lock controls temporarily
+			wall_jump_timer = wall_jump_control_loss;
+		
+			// Reset the variable jump timer so it doesn't float weirdly
+			jump_hold_timer = 0; 
+		}
+		
+	
+	//Starting the Jumping
+	if jumpkey_buffered && jump_count < jump_max && (on_ground || !_onwall)
 	{
 		//Reset buffer
 		jumpkey_buffered = false;
@@ -97,8 +139,6 @@ getcontrols();
 		//Count down the jump timer thing
 		jump_hold_timer--;
 	}
-	
-	//Wall sliding and jumping
 	
 	
 	//Y Collision
