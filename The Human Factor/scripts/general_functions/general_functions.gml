@@ -20,6 +20,8 @@ function getcontrols()
 		jumpkey_pressed = clamp(jumpkey_pressed, 0, 1);
 	jumpkey = keyboard_check(ord("W"))
 		jumpkey = clamp(jumpkey, 0, 1);
+	dashkey_pressed = keyboard_check_pressed(ord("J"));
+		dashkey_pressed = clamp(dashkey_pressed, 0, 1);
 		
 		//Jump key buffering
 		if jumpkey_pressed
@@ -34,4 +36,12 @@ function getcontrols()
 		else {
 			jumpkey_buffered = 0;
 		}			
+		//Dashing
+		if (dashkey_pressed) && (dash_cooldown <= 0)
+		{
+			dash_duration = 10;
+			dash_cooldown = 30;
+		}
 }
+
+		

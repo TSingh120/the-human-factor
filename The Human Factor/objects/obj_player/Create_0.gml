@@ -14,12 +14,24 @@ function setonground(_val = true)
 //Control setup
 controlsetup();
 
-//Moving
+//Sprites
+idle_sprite = spr_playeridle;
+dash_sprite = spr_playerrun;
+walk_sprite = spr_playerwalk;
+jump_sprite = spr_playerjump;
+mask_sprite = spr_playeridle;
 
+//Moving
+facing_dir = 1;
 move_dir = 0; //direction of the player, negative is left
 move_speed = 4; //speed at which the player'll move
 x_speed = 0;	  //the players speed horizontally
-y_speed = 0;	  //the players speed vertically
+y_speed = 0;	  //the players speed 
+
+	//Dashing
+	dash_speed = 12;
+	dash_duration = 0;
+	dash_cooldown = 0;
 
 //Jumping and falling
 

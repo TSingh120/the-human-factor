@@ -2,13 +2,27 @@
 getcontrols();
 
 //X movement
-	//Direction
+	//Dashing (hopefully this works)
 
+	//Direction
+	if (dash_duration) <= 0 {
 	move_dir = rightkey - leftkey;
+	}
+	//Get which direction to face
+	if move_dir != 0 { facing_dir = move_dir; };
 
 	//Get xspeed
 
-	x_speed = move_dir * move_speed;
+	dash_duration--;
+	dash_cooldown--;
+	
+	if (dash_duration > 0)
+	{
+		x_speed = facing_dir * dash_speed;
+		y_speed = 0;
+	} else {
+		x_speed = move_dir * move_speed;
+	}
 
 	//x collisions
 
@@ -84,6 +98,9 @@ getcontrols();
 		jump_hold_timer--;
 	}
 	
+	//Wall sliding and jumping
+	
+	
 	//Y Collision
 	var _subpixel = 0.5;
 	if place_meeting(x, y + y_speed, obj_wall)
@@ -114,41 +131,16 @@ getcontrols();
 	//Move
 	y += y_speed;
 	
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+//Sprite control
+	//Walking
+	if abs(x_speed) > 0 {sprite_index = walk_sprite; };
+	//Not moving
+	if x_speed == 0 {sprite_index = idle_sprite};
+	//Jumping
+	if !on_ground {sprite_index = jump_sprite};
+	//Dashing
+	if dash_duration > 0 {sprite_index = dash_sprite};
+	
+		//Collision Mask
+		mask_index = mask_sprite;
 
