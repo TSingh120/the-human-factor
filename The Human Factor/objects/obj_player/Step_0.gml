@@ -15,6 +15,8 @@ getcontrols();
 
 	dash_duration--;
 	dash_cooldown--;
+	slide_duration--;
+	slide_cooldown--;
 	
 	if (wall_jump_timer > 0)
 	{
@@ -25,7 +27,12 @@ getcontrols();
 	{
 		x_speed = facing_dir * dash_speed;
 		y_speed = 0;
-	} else {
+	}
+	else if (slide_duration > 0)
+	{
+		x_speed = move_dir * slide_speed;
+	}
+	else {
 		x_speed = move_dir * move_speed;
 	}
 
@@ -171,6 +178,51 @@ getcontrols();
 	//Move
 	y += y_speed;
 	
+//Combat stuff
+//State machine manager thing
+if (state == "stunned") {
+	action_timer--;
+	x_speed = 0;
+	if (action_timer <= 0) { state = "idle" };
+}
+else if  (state == "winding") {
+	//frames where the entity can be parried or countered
+	action_timer--;
+	if action_timer <= 0 {
+		//winding finished, spawn hitbox
+		state = "idle";
+		var _hitbox = instance_create_layer(x + (facing_dir * 15), y , "Instances", obj_hitbox);
+		_hitbox.owner = id;
+		_hitbox.action_type = "attack";
+		_hitbox.image_xscale = facing_dir;
+	}
+}
+else if state == "blocking" {
+	//waiting for the block duration to end
+	action_timer--;
+	if (action_timer <= 0) state = "idle";
+}
+else if state == "idle" {
+	//begin attack 
+	if (attackkey_pressed)
+	{
+		state = "winding";
+		action_timer = 12;
+	}
+	//blocking
+	if (blockkey_pressed)
+	{
+		state = "blocking";
+		action_timer = 10;
+		var _blockbox = instance_create_layer(x + (facing_dir * 10), y , "Instances", obj_hitbox);
+		_blockbox.owner = id;
+		_blockbox.action_type = "block";
+		_blockbox.lifetime = 10;
+	}
+}
+	
+
+	
 //Sprite control
 	//Walking
 	if abs(x_speed) > 0 {sprite_index = walk_sprite; };
@@ -180,7 +232,23 @@ getcontrols();
 	if !on_ground {sprite_index = jump_sprite};
 	//Dashing
 	if dash_duration > 0 {sprite_index = dash_sprite};
-	
+	//Wall sliding
+	if _onwall {sprite_index = wall_sprite};
+	//Sliding
+	if slide_duration > 0 {
+		sprite_index = slide_sprite;
+		mask_index = slidemask_sprite;
+	} else {
 		//Collision Mask
 		mask_index = mask_sprite;
+	}
+	//Attacking and blocking and stunned sprites
+	if state = "attack" {sprite_index = attack_sprite}
+	if state = "block" {sprite_index = block_sprite}
+	if state = "stunned" && !state = "idle" {sprite_index = stunned_sprite}
+		
+//If outside the room
+if (obj_player.y > room_height + 50 || obj_player.y < -room_height - 50) || (obj_player.x > room_width + 50 || obj_player.y < -room_width - 50) {
+	room_restart();	
+}
 

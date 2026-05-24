@@ -20,6 +20,12 @@ dash_sprite = spr_playerrun;
 walk_sprite = spr_playerwalk;
 jump_sprite = spr_playerjump;
 mask_sprite = spr_playeridle;
+wall_sprite = spr_playerwallslide;
+slide_sprite = spr_playerslide;
+slidemask_sprite = spr_playerslide;
+attack_sprite = spr_playerattack;
+block_sprite = spr_playerblock;
+stunned_sprite = spr_playerstunned;
 
 //Moving
 facing_dir = 1;
@@ -32,6 +38,11 @@ y_speed = 0;	  //the players speed
 	dash_speed = 12;
 	dash_duration = 0;
 	dash_cooldown = 0;
+	
+	//Sliding
+	slide_speed = 8;
+	slide_duration = 0;
+	slide_cooldown = 0;
 
 //Jumping and falling
 
@@ -63,3 +74,8 @@ wall_jump_hsp = 5;           //Horizontal push off the wall
 wall_jump_vsp = -10;          //Vertical push off the wall (matches first jump speed)
 wall_jump_timer = 0;         //Tracks how long controls are locked
 wall_jump_control_loss = 5; //Frames before player regains steering
+
+//Combat stuff
+state = "idle";
+action_timer = 0; //tracking how long a dude is stuck in a state
+hp = 100;
