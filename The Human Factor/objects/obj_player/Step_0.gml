@@ -195,7 +195,17 @@ else if  (state == "winding") {
 		_hitbox.owner = id;
 		_hitbox.action_type = "attack";
 		_hitbox.image_xscale = facing_dir;
+		//actually attack
+		state = "attacking"; 
+		action_timer = 10; // 10 frames of follow-through swing
+		image_index = 0;   // Reset animation for the swing
 	}
+}
+else if (state == "attacking")
+{
+	// NEW: Wait for the swing to finish before returning to idle
+	action_timer--;
+	if (action_timer <= 0) state = "idle";
 }
 else if state == "blocking" {
 	//waiting for the block duration to end
@@ -208,16 +218,20 @@ else if state == "idle" {
 	{
 		state = "winding";
 		action_timer = 12;
+		image_index = 0;
+		
 	}
 	//blocking
 	if (blockkey_pressed)
 	{
 		state = "blocking";
 		action_timer = 10;
+		image_index = 0;
 		var _blockbox = instance_create_layer(x + (facing_dir * 8), y - 20 , "Instances", obj_hitbox);
 		_blockbox.owner = id;
 		_blockbox.action_type = "block";
 		_blockbox.lifetime = 10;
+		
 	}
 }
 	
@@ -233,7 +247,7 @@ else if state == "idle" {
 	//Dashing
 	if dash_duration > 0 {sprite_index = dash_sprite};
 	//Wall sliding
-	if _onwall {sprite_index = wall_sprite};
+	if _onwall && !on_ground {sprite_index = wall_sprite};
 	//Sliding
 	if slide_duration > 0 {
 		sprite_index = slide_sprite;
@@ -242,11 +256,26 @@ else if state == "idle" {
 		//Collision Mask
 		mask_index = mask_sprite;
 	}
-	//Attacking and blocking and stunned sprites
-	if state = "attack" {sprite_index = attack_sprite}
-	if state = "block" {sprite_index = block_sprite}
-	if state = "stunned" && !state = "idle" {sprite_index = stunned_sprite}
+	switch (state) 
+{		
+	case "winding":
+		sprite_index = spr_playerwinding;
+		break;
 		
+	case "attacking":
+		sprite_index = spr_playerattack;
+		break;
+		
+	case "blocking":
+		sprite_index = spr_playerblock;
+		break;
+		
+	case "stunned":
+		sprite_index = spr_playerstunned;
+		break;
+}
+	
+	
 //If outside the room
 if (obj_player.y > room_height + 50 || obj_player.y < -room_height - 50) || (obj_player.x > room_width + 50 || obj_player.y < -room_width - 50) {
 	room_restart();	
