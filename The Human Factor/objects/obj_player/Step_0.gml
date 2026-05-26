@@ -17,6 +17,7 @@ getcontrols();
 	dash_cooldown--;
 	slide_duration--;
 	slide_cooldown--;
+	if iframes > 0 {iframes--;};
 	
 	if (wall_jump_timer > 0)
 	{
@@ -203,7 +204,7 @@ else if  (state == "winding") {
 }
 else if (state == "attacking")
 {
-	// NEW: Wait for the swing to finish before returning to idle
+	//Wait for the swing to finish before returning to idle
 	action_timer--;
 	if (action_timer <= 0) state = "idle";
 }
@@ -231,6 +232,7 @@ else if state == "idle" {
 		_blockbox.owner = id;
 		_blockbox.action_type = "block";
 		_blockbox.lifetime = 10;
+		_blockbox.image_xscale = facing_dir;
 		
 	}
 }
@@ -281,3 +283,6 @@ if (obj_player.y > room_height + 50 || obj_player.y < -room_height - 50) || (obj
 	room_restart();	
 }
 
+if hp <= 0 {
+	room_restart();	
+}

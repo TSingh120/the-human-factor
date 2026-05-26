@@ -2,6 +2,8 @@ var _target = other.id;
 
 //To not hit self
 if (_target == owner) return;
+if (_target.iframes > 0) return;
+if (_target.faction == owner.faction) return;
 
 //If the target hasnt been hit yet
 if (ds_list_find_index(hit_list, _target) == -1) {

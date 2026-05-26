@@ -79,3 +79,5 @@ wall_jump_control_loss = 5; //Frames before player regains steering
 state = "idle";
 action_timer = 0; //tracking how long a dude is stuck in a state
 hp = 100;
+iframes = 0;
+faction = "player";

@@ -47,6 +47,7 @@ function getcontrols()
 		{
 			dash_duration = 10;
 			dash_cooldown = 30;
+			iframes = 10;
 		}
 		//Sliding
 		if (slidekey_pressed) && (slide_cooldown <= 0) && obj_player.on_ground
