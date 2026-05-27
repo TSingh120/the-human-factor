@@ -23,7 +23,7 @@ if (state == "idle") {
 	
 	if (point_distance(x, y, obj_player.x, obj_player.y) <= 40) {
 		state = "winding";
-		action_timer = 8;
+		action_timer = 20;
 		image_index = 0;
 		x_speed = 0;
 		}	

@@ -204,7 +204,7 @@ else if  (state == "winding") {
 		_hitbox.lifetime = 10;
 		//actually attack
 		state = "attacking"; 
-		action_timer = 20; // 10 frames of follow-through swing
+		action_timer = 30; // 10 frames of follow-through swing
 		image_index = 0;   // Reset animation for the swing
 	}
 }
@@ -232,7 +232,7 @@ else if state == "idle" {
 	if (blockkey_pressed)
 	{
 		state = "blocking";
-		action_timer = 40;
+		action_timer = 60;
 		image_index = 0;
 		var _blockbox = instance_create_layer(x + (facing_dir * 8), y - 20 , "Instances", obj_hitbox);
 		_blockbox.owner = id;
