@@ -12,29 +12,30 @@ if (ds_list_find_index(hit_list, _target) == -1) {
 	//Check if the target can be parried or countered
 	if (_target.state == "winding")
 	{
-		if (action_type == "block")
+		if (type == "block")
 		{
 			//Parry
 			_target.state = "stunned";
-			_target.action_timer = 45;
+			_target.action_timer = 90;
 		}
 		else if (type == "attack")
 		{
 			//Counter
 			_target.hp -= damage * 2;
 			_target.state = "stunned";
-			_target.action_timer = 20;
+			_target.action_timer = 60;
 		}
 	}
-	else if (type == "attack" && _target.state != "stunned")
+	else if (type == "attack")
 	{
-		if _target.state = "blocking" {
+		if _target.state == "blocking" {
 			_target.hp -= damage * 0.3;
 		}
 		else {
+			show_debug_message("Smacked enemy! Their HP is now: " + string(_target.hp));
 			_target.hp -= damage;
-			_target.state = "stunned";
-			_target.action_timer = 15;
+			_target.image_index = 0;
+			_target.action_timer = 30;
 		}
 	}
 }

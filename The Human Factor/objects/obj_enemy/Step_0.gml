@@ -1,3 +1,5 @@
+event_inherited();
+
 if (state == "idle") {
 	//checking to find the player and chasing if the player is close enough
 	if instance_exists(obj_player) 
@@ -21,7 +23,7 @@ if (state == "idle") {
 	
 	if (point_distance(x, y, obj_player.x, obj_player.y) <= 40) {
 		state = "winding";
-		action_timer = 15;
+		action_timer = 8;
 		image_index = 0;
 		x_speed = 0;
 		}	
@@ -31,13 +33,13 @@ else if state == "winding" {
 	action_timer--;
 	if action_timer <= 0 {
 			//winding finished, spawn hitbox
-		var _hitbox = instance_create_layer(x + (facing_dir * 8), y - 20 , "Instances", obj_hitbox);
+		var _hitbox = instance_create_layer(x + (facing_dir * 20), y - 20 , "Instances", obj_hitbox);
 		_hitbox.owner = id;
-		_hitbox.action_type = "attack";
+		_hitbox.type = "attack";
 		_hitbox.image_xscale = facing_dir;
 		//actually attack
 		state = "attacking"; 
-		action_timer = 10; // 10 frames of follow-through swing
+		action_timer = 60; // 10 frames of follow-through swing
 		image_index = 0;   // Reset animation for the swing
 	}
 }
@@ -100,6 +102,29 @@ else if (state == "stunned")
 	y += y_speed;
 	
 	image_xscale = facing_dir;
+	
+		switch (state) 
+{		
+	case "winding":
+		sprite_index = spr_enemywinding;
+		break;
+		
+	case "attacking":
+		sprite_index = spr_enemyattack;
+		break;
+		
+	case "blocking":
+		sprite_index = spr_enemyblock;
+		break;
+		
+	case "stunned":
+		sprite_index = spr_enemystunned;
+		break;
+		
+	case "idle":
+		sprite_index = spr_enemy;
+		break;
+}
 	
 	if hp <= 0 {
 		instance_destroy();	

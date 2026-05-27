@@ -1,5 +1,7 @@
 //Get inputs
 getcontrols();
+//get hitbox combat info
+event_inherited();
 
 //X movement
 	//Dashing (hopefully this works)
@@ -184,6 +186,9 @@ getcontrols();
 if (state == "stunned") {
 	action_timer--;
 	x_speed = 0;
+	y_speed = 0;
+	if action_timer > 0 { move_speed = 0; }
+	else { move_speed = 4 }
 	if (action_timer <= 0) { state = "idle" };
 }
 else if  (state == "winding") {
@@ -194,11 +199,12 @@ else if  (state == "winding") {
 		state = "idle";
 		var _hitbox = instance_create_layer(x + (facing_dir * 8), y - 20 , "Instances", obj_hitbox);
 		_hitbox.owner = id;
-		_hitbox.action_type = "attack";
+		_hitbox.type = "attack";
 		_hitbox.image_xscale = facing_dir;
+		_hitbox.lifetime = 10;
 		//actually attack
 		state = "attacking"; 
-		action_timer = 10; // 10 frames of follow-through swing
+		action_timer = 20; // 10 frames of follow-through swing
 		image_index = 0;   // Reset animation for the swing
 	}
 }
@@ -218,7 +224,7 @@ else if state == "idle" {
 	if (attackkey_pressed)
 	{
 		state = "winding";
-		action_timer = 12;
+		action_timer = 8;
 		image_index = 0;
 		
 	}
@@ -226,12 +232,12 @@ else if state == "idle" {
 	if (blockkey_pressed)
 	{
 		state = "blocking";
-		action_timer = 10;
+		action_timer = 40;
 		image_index = 0;
 		var _blockbox = instance_create_layer(x + (facing_dir * 8), y - 20 , "Instances", obj_hitbox);
 		_blockbox.owner = id;
-		_blockbox.action_type = "block";
-		_blockbox.lifetime = 10;
+		_blockbox.type = "block";
+		_blockbox.lifetime = 20;
 		_blockbox.image_xscale = facing_dir;
 		
 	}

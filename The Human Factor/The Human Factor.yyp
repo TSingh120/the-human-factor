@@ -5,6 +5,7 @@
   "resources": [
     {"id":{"name":"spr_playerblock","path":"sprites/spr_playerblock/spr_playerblock.yy",},"order":13,},
     {"id":{"name":"spr_playerrun","path":"sprites/spr_playerrun/spr_playerrun.yy",},"order":4,},
+    {"id":{"name":"spr_enemystunned","path":"sprites/spr_enemystunned/spr_enemystunned.yy",},"order":19,},
     {"id":{"name":"obj_camera","path":"objects/obj_camera/obj_camera.yy",},"order":2,},
     {"id":{"name":"spr_playerslide","path":"sprites/spr_playerslide/spr_playerslide.yy",},"order":8,},
     {"id":{"name":"obj_hitbox","path":"objects/obj_hitbox/obj_hitbox.yy",},"order":3,},
@@ -24,7 +25,10 @@
     {"id":{"name":"spr_playerjump","path":"sprites/spr_playerjump/spr_playerjump.yy",},"order":5,},
     {"id":{"name":"inital_room","path":"rooms/inital_room/inital_room.yy",},"order":1,},
     {"id":{"name":"obj_entity","path":"objects/obj_entity/obj_entity.yy",},"order":4,},
+    {"id":{"name":"spr_enemyattack","path":"sprites/spr_enemyattack/spr_enemyattack.yy",},"order":17,},
     {"id":{"name":"spr_playerwinding","path":"sprites/spr_playerwinding/spr_playerwinding.yy",},"order":14,},
+    {"id":{"name":"spr_enemywinding","path":"sprites/spr_enemywinding/spr_enemywinding.yy",},"order":16,},
+    {"id":{"name":"spr_enemyblock","path":"sprites/spr_enemyblock/spr_enemyblock.yy",},"order":18,},
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},"order":0,},
   ],
   "Options": [
