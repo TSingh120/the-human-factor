@@ -42,11 +42,11 @@ event_inherited();
 	//x collisions
 
 	var _subpixel = 0.5;
-	if place_meeting(x+ x_speed, y, obj_wall)
+	if place_meeting(x+ x_speed, y, obj_wallmy)
 	{
 		//Scoot up to wall precisely
 		var _pixelcheck = _subpixel * sign(x_speed);
-		while !place_meeting(x + _pixelcheck, y , obj_wall)
+		while !place_meeting(x + _pixelcheck, y , obj_wallmy)
 		{
 			x += _pixelcheck;
 		}
@@ -88,8 +88,8 @@ event_inherited();
 	}
 	
 	//Wall sliding and jumping
-	var _onwall_left = place_meeting(x - 1, y, obj_wall);
-	var _onwall_right = place_meeting(x + 1, y, obj_wall);
+	var _onwall_left = place_meeting(x - 1, y, obj_wallmy);
+	var _onwall_right = place_meeting(x + 1, y, obj_wallmy);
 	var _onwall = _onwall_left || _onwall_right
 	
 		//Wall sliding
@@ -153,11 +153,11 @@ event_inherited();
 	
 	//Y Collision
 	var _subpixel = 0.5;
-	if place_meeting(x, y + y_speed, obj_wall)
+	if place_meeting(x, y + y_speed, obj_wallmy)
 	{
 		//Scoot up to the wall precisely
 		var _pixelcheck = _subpixel * sign(y_speed);
-		while !place_meeting(x, y + _pixelcheck, obj_wall)
+		while !place_meeting(x, y + _pixelcheck, obj_wallmy)
 		{
 			y += _pixelcheck;
 		}
@@ -173,7 +173,7 @@ event_inherited();
 	}
 	
 	//Check grounded state
-	if y_speed >= 0 && place_meeting(x, y+1, obj_wall)
+	if y_speed >= 0 && place_meeting(x, y+1, obj_wallmy)
 	{
 		setonground(true);
 	}

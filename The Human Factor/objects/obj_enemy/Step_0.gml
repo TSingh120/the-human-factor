@@ -57,11 +57,11 @@ else if (state == "stunned")
 //x collisions
 
 	var _subpixel = 0.5;
-	if place_meeting(x+ x_speed, y, obj_wall)
+	if place_meeting(x+ x_speed, y, obj_wallmy)
 	{
 		//Scoot up to wall precisely
 		var _pixelcheck = _subpixel * sign(x_speed);
-		while !place_meeting(x + _pixelcheck, y , obj_wall)
+		while !place_meeting(x + _pixelcheck, y , obj_wallmy)
 		{
 			x += _pixelcheck;
 		}
@@ -80,11 +80,11 @@ else if (state == "stunned")
 		
 		//Y Collision
 	var _subpixel = 0.5;
-	if place_meeting(x, y + y_speed, obj_wall)
+	if place_meeting(x, y + y_speed, obj_wallmy)
 	{
 		//Scoot up to the wall precisely
 		var _pixelcheck = _subpixel * sign(y_speed);
-		while !place_meeting(x, y + _pixelcheck, obj_wall)
+		while !place_meeting(x, y + _pixelcheck, obj_wallmy)
 		{
 			y += _pixelcheck;
 		}
@@ -93,7 +93,7 @@ else if (state == "stunned")
 	}
 	
 	//Check grounded state
-	if y_speed >= 0 && place_meeting(x, y+1, obj_wall)
+	if y_speed >= 0 && place_meeting(x, y+1, obj_wallmy)
 	{
 		on_ground = (true);
 	}
