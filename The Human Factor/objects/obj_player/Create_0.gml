@@ -16,8 +16,8 @@ controlsetup();
 
 //Sprites
 idle_sprite = spr_playeridle;
-dash_sprite = spr_playerrun;
-walk_sprite = spr_playerwalk;
+dash_sprite = spr_playerdash;
+walk_sprite = spr_playerrun;
 jump_sprite = spr_playerjump;
 mask_sprite = spr_playeridle;
 wall_sprite = spr_playerwallslide;

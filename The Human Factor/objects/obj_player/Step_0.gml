@@ -251,7 +251,7 @@ else if state == "idle" {
 	//Not moving
 	if x_speed == 0 {sprite_index = idle_sprite};
 	//Jumping
-	if !on_ground {sprite_index = jump_sprite};
+	if !on_ground {sprite_index = jump_sprite;}
 	//Dashing
 	if dash_duration > 0 {sprite_index = dash_sprite};
 	//Wall sliding
@@ -260,6 +260,7 @@ else if state == "idle" {
 	if slide_duration > 0 {
 		sprite_index = slide_sprite;
 		mask_index = slidemask_sprite;
+		if image_index = 0 { image_index += 1 }
 	} else {
 		//Collision Mask
 		mask_index = mask_sprite;
