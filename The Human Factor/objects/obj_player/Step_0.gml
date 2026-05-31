@@ -204,7 +204,7 @@ else if  (state == "winding") {
 		_hitbox.lifetime = 10;
 		//actually attack
 		state = "attacking"; 
-		action_timer = 20; // 10 frames of follow-through swing
+		action_timer = 20; // 20 frames of follow-through swing
 		image_index = 0;   // Reset animation for the swing
 	}
 }
