@@ -1,4 +1,5 @@
 event_inherited();
+jumping_duration--;
 
 if (state == "idle") {
 	//checking to find the player and chasing if the player is close enough
@@ -90,6 +91,7 @@ else if (state == "stunned")
 		}
 		//Set y speed 0 to collide
 		y_speed = 0;
+		
 	}
 	
 	//Check grounded state
@@ -97,10 +99,19 @@ else if (state == "stunned")
 	{
 		on_ground = true;
 	}
-	if place_meeting(x + 2, y+1, obj_wallmy) && on_ground
+	else {on_ground = false}
+	if (!place_meeting(x+1, y+1, obj_wallmy) || !place_meeting(x-1, y+1, obj_wallmy)) || (place_meeting(x+16, y-1, obj_wallmy) || place_meeting(x-16, y-1, obj_wallmy))
 	{
-		y_speed = jump_speed;	
+		show_debug_message("JUMP TRIGGERED");
+		jumping_duration = 1;
 	}
+	if jumping_duration > 0
+{
+    show_debug_message("JUMP ACTIVE");
+    y_speed = jump_speed;
+    jumping_duration = 0;
+}
+	show_debug_message("jumping_duration=" + string(jumping_duration));
 	
 	//Move
 	y += y_speed;
