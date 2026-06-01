@@ -20,11 +20,11 @@ function getcontrols()
 		jumpkey_pressed = clamp(jumpkey_pressed, 0, 1);
 	jumpkey = keyboard_check(ord("W"))
 		jumpkey = clamp(jumpkey, 0, 1);
-	dashkey_pressed = keyboard_check_pressed(ord("J"));
+	dashkey_pressed = keyboard_check_pressed(ord("I"));
 		dashkey_pressed = clamp(dashkey_pressed, 0, 1);
 	slidekey_pressed = keyboard_check_pressed(ord("S"));
 		slidekey_pressed = clamp(slidekey_pressed, 0, 1);
-	attackkey_pressed = keyboard_check_pressed(ord("K"));
+	attackkey_pressed = keyboard_check_pressed(ord("J"));
 		attackkey_pressed = clamp(attackkey_pressed, 0, 1);
 	blockkey_pressed = keyboard_check_pressed(ord("L"));
 		blockkey_pressed = clamp(blockkey_pressed, 0, 1);

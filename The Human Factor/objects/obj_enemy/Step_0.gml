@@ -95,11 +95,16 @@ else if (state == "stunned")
 	//Check grounded state
 	if y_speed >= 0 && place_meeting(x, y+1, obj_wallmy)
 	{
-		on_ground = (true);
+		on_ground = true;
+	}
+	if place_meeting(x + 2, y+1, obj_wallmy) && on_ground
+	{
+		y_speed = jump_speed;	
 	}
 	
 	//Move
 	y += y_speed;
+	
 	
 	image_xscale = facing_dir;
 	
