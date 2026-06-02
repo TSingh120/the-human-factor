@@ -24,7 +24,7 @@ if (state == "idle") {
 	
 	if (point_distance(x, y, obj_player.x, obj_player.y) <= 40) {
 		state = "winding";
-		action_timer = 20;
+		action_timer = irandom_range(15,30);
 		image_index = 0;
 		x_speed = 0;
 		}	
@@ -40,7 +40,7 @@ else if state == "winding" {
 		_hitbox.image_xscale = facing_dir;
 		//actually attack
 		state = "attacking"; 
-		action_timer = 60; // 10 frames of follow-through swing
+		action_timer = irandom_range(40, 70); // 60 frames of follow-through swing
 		image_index = 0;   // Reset animation for the swing
 	}
 }
@@ -94,24 +94,21 @@ else if (state == "stunned")
 		
 	}
 	
+	
 	//Check grounded state
 	if y_speed >= 0 && place_meeting(x, y+1, obj_wallmy)
 	{
 		on_ground = true;
 	}
 	else {on_ground = false}
-	if (!place_meeting(x+1, y+1, obj_wallmy) || !place_meeting(x-1, y+1, obj_wallmy)) || (place_meeting(x+16, y-1, obj_wallmy) || place_meeting(x-16, y-1, obj_wallmy))
+	if on_ground && (!place_meeting(x+1, y+1, obj_wallmy) || !place_meeting(x-1, y+1, obj_wallmy)) || (place_meeting(x+16, y-1, obj_wallmy) || place_meeting(x-16, y-1, obj_wallmy))
 	{
-		show_debug_message("JUMP TRIGGERED");
-		jumping_duration = 1;
-	}
-	if jumping_duration > 0
-{
-    show_debug_message("JUMP ACTIVE");
     y_speed = jump_speed;
-    jumping_duration = 0;
 }
-	show_debug_message("jumping_duration=" + string(jumping_duration));
+if (!on_ground) {
+    y_speed += gravity_speed;
+    if (y_speed > term_vel) y_speed = term_vel;
+}
 	
 	//Move
 	y += y_speed;
