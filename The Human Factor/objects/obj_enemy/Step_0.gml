@@ -99,11 +99,13 @@ else if (state == "stunned")
 	if y_speed >= 0 && place_meeting(x, y+1, obj_wallmy)
 	{
 		on_ground = true;
+		jump_count = 1;
 	}
 	else {on_ground = false}
-	if on_ground && (!place_meeting(x+1, y+1, obj_wallmy) || !place_meeting(x-1, y+1, obj_wallmy)) || (place_meeting(x+16, y-1, obj_wallmy) || place_meeting(x-16, y-1, obj_wallmy))
+	if on_ground && (!place_meeting(x+1, y+1, obj_wallmy) || !place_meeting(x-1, y+1, obj_wallmy)) || (place_meeting(x+1, y-1, obj_wallmy) || place_meeting(x-1, y-1, obj_wallmy))
 	{
-    y_speed = jump_speed;
+		if jump_count > 0 {y_speed = jump_speed;}
+	jump_count--;
 }
 if (!on_ground) {
     y_speed += gravity_speed;

@@ -8,6 +8,7 @@ jump_speed = -12;
 gravity_speed = 0.35;
 iframes = 0;
 detection_range = 400;
+jump_count = 0;
 
 hp = 100;
 state = "idle";
