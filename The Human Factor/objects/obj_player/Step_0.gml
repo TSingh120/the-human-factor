@@ -130,7 +130,10 @@ event_inherited();
 		jumpkey_buffered = false;
 		jumpkey_buffertimer = 0;		
 		//set jump count higher for each jump
-		jump_count++;		
+		jump_count++;	
+		sprite_index = jump_sprite;
+		image_index = 0;
+		image_speed = 1;
 		//Set jump hold timer to equal to the number of frames in the jump frames code
 		jump_hold_timer = jump_hold_frames[jump_count - 1];
 		//Tell the player that they're no longer on the ground
@@ -187,6 +190,9 @@ if (state == "stunned") {
 	action_timer--;
 	x_speed = 0;
 	y_speed = 0;
+	dash_duration = 0;
+	dash_cooldown = action_timer;
+	slide_cooldown = action_timer;
 	if action_timer > 0 { move_speed = 0; }
 	else { move_speed = 4 }
 	if (action_timer <= 0) { state = "idle" };
@@ -247,16 +253,30 @@ else if state == "idle" {
 	
 //Sprite control
 	//Walking
-	if abs(x_speed) > 0 {sprite_index = walk_sprite; };
-	//Not moving
-	if x_speed == 0 {sprite_index = idle_sprite};
-	//Jumping
-	if !on_ground {sprite_index = jump_sprite;}
-	//Dashing
-	if dash_duration > 0 {sprite_index = dash_sprite};
-	//Wall sliding
-	if _onwall && !on_ground {sprite_index = wall_sprite};
-	//Sliding
+	if !on_ground && !_onwall && !dash_duration > 0
+{
+    if sprite_index != jump_sprite
+    {
+        sprite_index = jump_sprite;
+        image_index = 0;
+    }
+}
+else if _onwall && !on_ground
+{
+    sprite_index = wall_sprite;
+}
+else if dash_duration > 0
+{
+    sprite_index = dash_sprite;
+}
+else if abs(x_speed) > 0
+{
+    sprite_index = walk_sprite;
+}
+else
+{
+    sprite_index = idle_sprite;
+}
 	if slide_duration > 0 {
 		sprite_index = slide_sprite;
 		mask_index = slidemask_sprite;

@@ -16,24 +16,24 @@ if (ds_list_find_index(hit_list, _target) == -1) {
 		{
 			//Parry
 			_target.state = "stunned";
-			_target.action_timer = 90;
+			_target.action_timer = _target.stunned_timer;
 		}
 		else if (type == "attack")
 		{
 			//Counter
-			_target.hp -= damage * 2;
+			_target.hp -= owner.damage * 2;
 			_target.state = "stunned";
-			_target.action_timer = 60;
+			_target.action_timer = _target.countered_timer;
 		}
 	}
 	else if (type == "attack")
 	{
 		if _target.state == "blocking" {
-			_target.hp -= damage * 0.3;
+			_target.hp -= owner.damage * 0.3;
 		}
 		else {
 			show_debug_message("Smacked enemy! Their HP is now: " + string(_target.hp));
-			_target.hp -= damage;
+			_target.hp -= owner.damage;
 			_target.image_index = 0;
 			_target.action_timer = 30;
 		}

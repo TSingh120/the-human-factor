@@ -16,3 +16,6 @@ action_timer = 0;
 faction = "hostile";
 knockback_speed = 0;
 jumping_duration = 0;
+damage = 10;
+stunned_timer = 180;
+countered_timer = 90;
