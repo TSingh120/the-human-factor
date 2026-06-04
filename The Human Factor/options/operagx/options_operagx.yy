@@ -2,8 +2,8 @@
   "resourceType": "GMOperaGXOptions",
   "resourceVersion": "1.0",
   "name": "operagx",
-  "option_operagx_version": "1.0.0.1",
-  "option_operagx_next_version": "1.0.0.2",
+  "option_operagx_version": "1.0.0.2",
+  "option_operagx_next_version": "1.0.0.3",
   "option_operagx_game_name": "The Human Factor",
   "option_operagx_interpolate_pixels": false,
   "option_operagx_scale": 0,
@@ -14,5 +14,5 @@
   "option_operagx_team_id": "b1713832-2e69-4bb9-87ba-b7e09c2abc9d",
   "option_operagx_editUrl": "https://dev.gx.games/games/fb0f3870-6d8c-448d-a811-cd858a15f3d1/details",
   "option_operagx_internalShareUrl": "https://gx.games/games/beqd3r/the-human-factor/tracks/919473b8-3dc2-4747-bc9c-4a2b04cf7694/",
-  "option_operagx_publicShareUrl": "",
+  "option_operagx_publicShareUrl": "https://gx.games/games/beqd3r/the-human-factor/",
 }
