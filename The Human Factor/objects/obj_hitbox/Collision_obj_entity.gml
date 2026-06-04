@@ -33,9 +33,14 @@ if (ds_list_find_index(hit_list, _target) == -1) {
 		}
 		else {
 			show_debug_message("Smacked enemy! Their HP is now: " + string(_target.hp));
+			if owner.y_speed > 0 {
+				_target.hp -= owner.damage*1.5;
+			}
+			else {
 			_target.hp -= owner.damage;
 			_target.image_index = 0;
 			_target.action_timer = 30;
+			}
 		}
 	}
 }

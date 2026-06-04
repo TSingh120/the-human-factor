@@ -22,11 +22,11 @@ camera_set_view_pos(view_camera[0], finalcam_x, finalcam_y);
 
 if (layer_exists("Backgrounds_2"))
 {
-	layer_x("Backgrounds_2",obj_player.x/200000);
+	layer_x("Backgrounds_2",obj_player.x/4);
 }
 if (layer_exists("Backgrounds_3"))
 {
-	layer_x("Backgrounds_3",obj_player.x/5);
+	layer_x("Backgrounds_3",obj_player.x/7);
 }
 if (layer_exists("Backgrounds_4"))
 {
