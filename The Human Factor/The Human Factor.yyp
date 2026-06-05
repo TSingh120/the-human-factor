@@ -3,6 +3,7 @@
   "resourceVersion": "1.6",
   "name": "The Human Factor",
   "resources": [
+    {"id":{"name":"obj_titlemenu","path":"objects/obj_titlemenu/obj_titlemenu.yy",},"order":3,},
     {"id":{"name":"spr_playerblock2","path":"sprites/spr_playerblock2/spr_playerblock2.yy",},"order":13,},
     {"id":{"name":"uls_collider_set_scale","path":"scripts/uls_collider_set_scale/uls_collider_set_scale.yy",},"order":3,},
     {"id":{"name":"background","path":"sprites/background/background.yy",},"order":2,},
@@ -101,6 +102,7 @@
     {"id":{"name":"sh_gaussian_blur_h","path":"shaders/sh_gaussian_blur_h/sh_gaussian_blur_h.yy",},"order":0,},
     {"id":{"name":"spr_factory","path":"sprites/spr_factory/spr_factory.yy",},"order":31,},
     {"id":{"name":"spr_enemyattack","path":"sprites/spr_enemyattack/spr_enemyattack.yy",},"order":17,},
+    {"id":{"name":"obj_menusettings","path":"objects/obj_menusettings/obj_menusettings.yy",},"order":4,},
     {"id":{"name":"obj_light_lamp","path":"objects/obj_light_lamp/obj_light_lamp.yy",},"order":2,},
     {"id":{"name":"spr_playerwinding2","path":"sprites/spr_playerwinding2/spr_playerwinding2.yy",},"order":14,},
     {"id":{"name":"scr_update_corners","path":"scripts/scr_update_corners/scr_update_corners.yy",},"order":5,},
@@ -130,12 +132,12 @@
     "children": [],
   },
   "RoomOrderNodes": [
+    {"roomId":{"name":"Room_titlescreen","path":"rooms/Room_titlescreen/Room_titlescreen.yy",},},
     {"roomId":{"name":"inital_room","path":"rooms/inital_room/inital_room.yy",},},
     {"roomId":{"name":"Room5","path":"rooms/Room5/Room5.yy",},},
     {"roomId":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
     {"roomId":{"name":"room_example","path":"rooms/room_example/room_example.yy",},},
     {"roomId":{"name":"room_example2","path":"rooms/room_example2/room_example2.yy",},},
-    {"roomId":{"name":"Room_titlescreen","path":"rooms/Room_titlescreen/Room_titlescreen.yy",},},
   ],
   "Folders": [
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Animation Curves","folderPath":"folders/Animation Curves.yy","order":12,},
