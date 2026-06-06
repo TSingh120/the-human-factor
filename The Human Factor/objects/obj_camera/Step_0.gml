@@ -1,3 +1,4 @@
+gpu_set_texfilter(false);
 //only work if the player instance exists
 if !instance_exists(obj_player) exit;
 
