@@ -21,9 +21,14 @@ if (ds_list_find_index(hit_list, _target) == -1) {
 		else if (type == "attack")
 		{
 			//Counter
+			if owner.y_speed > 0 {
+				_target.hp -= owner.damage*2.5	
+			}
+			else {
 			_target.hp -= owner.damage * 2;
 			_target.state = "stunned";
 			_target.action_timer = _target.countered_timer;
+			}
 		}
 	}
 	else if (type == "attack")
