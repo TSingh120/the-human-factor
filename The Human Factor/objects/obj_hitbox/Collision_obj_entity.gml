@@ -17,6 +17,8 @@ if (ds_list_find_index(hit_list, _target) == -1) {
 			//Parry
 			_target.state = "stunned";
 			_target.action_timer = _target.stunned_timer;
+			audio_play_sound(snd_parried, 10, false);
+			instance_create_layer((x + _target.x) / 2, y, "Instances", obj_parryspark);
 		}
 		else if (type == "attack")
 		{
@@ -29,15 +31,19 @@ if (ds_list_find_index(hit_list, _target) == -1) {
 			_target.state = "stunned";
 			_target.action_timer = _target.countered_timer;
 			}
+			audio_play_sound(snd_countered, 10, false);
+			instance_create_layer((x + _target.x) / 2, y, "Instances", obj_counterspark);
 		}
 	}
 	else if (type == "attack")
 	{
 		if _target.state == "blocking" {
 			_target.hp -= owner.damage * 0.3;
+			audio_play_sound(snd_blocked, 10, false);
 		}
 		else {
 			show_debug_message("Smacked enemy! Their HP is now: " + string(_target.hp));
+			audio_play_sound(snd_attacked, 10, false);
 			if owner.y_speed > 0 {
 				_target.hp -= owner.damage*1.5;
 			}

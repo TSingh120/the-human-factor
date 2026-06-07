@@ -27,6 +27,7 @@ if (state == "idle") {
 		action_timer = irandom_range(15,30);
 		image_index = 0;
 		x_speed = 0;
+		audio_play_sound(snd_raisesound, 3, false);
 		}	
 	}
 }
@@ -42,6 +43,7 @@ else if state == "winding" {
 		state = "attacking"; 
 		action_timer = irandom_range(40, 70); // 60 frames of follow-through swing
 		image_index = 0;   // Reset animation for the swing
+		audio_play_sound(snd_swordwhoosh, 5, false);
 	}
 }
 else if (state == "attacking") 

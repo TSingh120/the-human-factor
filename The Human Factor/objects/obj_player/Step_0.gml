@@ -131,6 +131,8 @@ event_inherited();
 		jumpkey_buffertimer = 0;		
 		//set jump count higher for each jump
 		jump_count++;	
+		if jump_count == 1 { audio_play_sound(snd_grunt1, 5, false) }
+		if jump_count == 2 { audio_play_sound(snd_grunt2, 5, false) }
 		sprite_index = jump_sprite;
 		image_index = 0;
 		image_speed = 1;
@@ -178,6 +180,10 @@ event_inherited();
 	//Check grounded state
 	if y_speed >= 0 && place_meeting(x, y+1, obj_wallmy)
 	{
+		if !on_ground {
+			audio_play_sound(snd_landing, 5, false);
+			instance_create_layer(x, y, "Instances", obj_landingdust);
+		}
 		setonground(true);
 	}
 	
@@ -212,6 +218,7 @@ else if  (state == "winding") {
 		state = "attacking"; 
 		action_timer = 20; // 20 frames of follow-through swing
 		image_index = 0;   // Reset animation for the swing
+		audio_play_sound(snd_swordwhoosh, 5, false);
 	}
 }
 else if (state == "attacking")
@@ -232,7 +239,7 @@ else if state == "idle" {
 		state = "winding";
 		action_timer = 8;
 		image_index = 0;
-		
+		audio_play_sound(snd_raisesound, 3, false);
 	}
 	//blocking
 	if (blockkey_pressed)
@@ -245,6 +252,7 @@ else if state == "idle" {
 		_blockbox.type = "block";
 		_blockbox.lifetime = 40;
 		_blockbox.image_xscale = facing_dir;
+		audio_play_sound(snd_blockwhoosh, 5, false);
 		
 	}
 }
