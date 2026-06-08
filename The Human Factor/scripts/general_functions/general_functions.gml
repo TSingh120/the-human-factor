@@ -48,12 +48,14 @@ function getcontrols()
 			dash_duration = 10;
 			dash_cooldown = 30;
 			iframes = 10;
+			audio_play_sound(snd_dash, 8, false);
 		}
 		//Sliding
 		if (slidekey_pressed) && (slide_cooldown <= 0) && obj_player.on_ground
 		{
 			slide_duration = 20;
 			slide_cooldown = 30;
+			audio_play_sound(snd_slide, 5, false);
 		}		
 }
 

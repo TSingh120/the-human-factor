@@ -104,6 +104,7 @@ event_inherited();
 		{
 			jumpkey_buffered = false;
 			jumpkey_buffertimer = 0;
+			audio_play_sound(snd_grunt2, 5, false);
 			
 			//Apply wall jump force
 			y_speed = wall_jump_vsp;
