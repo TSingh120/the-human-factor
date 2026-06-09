@@ -49,6 +49,7 @@
     {"id":{"name":"spr_cityskybg","path":"sprites/spr_cityskybg/spr_cityskybg.yy",},"order":39,},
     {"id":{"name":"snd_dash","path":"sounds/snd_dash/snd_dash.yy",},"order":11,},
     {"id":{"name":"snd_grunt1","path":"sounds/snd_grunt1/snd_grunt1.yy",},"order":8,},
+    {"id":{"name":"spr_textbox_arrow","path":"sprites/spr_textbox_arrow/spr_textbox_arrow.yy",},"order":6,},
     {"id":{"name":"obj_wallmy","path":"objects/obj_wallmy/obj_wallmy.yy",},"order":1,},
     {"id":{"name":"snd_blocked","path":"sounds/snd_blocked/snd_blocked.yy",},"order":0,},
     {"id":{"name":"spr_playerblock","path":"sprites/spr_playerblock/spr_playerblock.yy",},"order":22,},
@@ -159,13 +160,13 @@
     "children": [],
   },
   "RoomOrderNodes": [
-    {"roomId":{"name":"room_dialoguetest","path":"rooms/room_dialoguetest/room_dialoguetest.yy",},},
     {"roomId":{"name":"Room_titlescreen","path":"rooms/Room_titlescreen/Room_titlescreen.yy",},},
     {"roomId":{"name":"inital_room","path":"rooms/inital_room/inital_room.yy",},},
     {"roomId":{"name":"Room5","path":"rooms/Room5/Room5.yy",},},
     {"roomId":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
     {"roomId":{"name":"room_example","path":"rooms/room_example/room_example.yy",},},
     {"roomId":{"name":"room_example2","path":"rooms/room_example2/room_example2.yy",},},
+    {"roomId":{"name":"room_dialoguetest","path":"rooms/room_dialoguetest/room_dialoguetest.yy",},},
   ],
   "Folders": [
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Animation Curves","folderPath":"folders/Animation Curves.yy","order":11,},

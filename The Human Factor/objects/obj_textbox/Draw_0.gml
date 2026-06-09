@@ -48,8 +48,17 @@ if accept_key
 				draw_char = 0;
 			}
 			//Destroying/Exiting the textbox once out of pages
-			else { instance_destroy(); }
+			else 
+			{
+				//Link text to the option selected
+				if option_number > 0 
+				{
+					create_textbox(option_link_id[option_pos]);	
+				}
+				instance_destroy();
+			}
 		}
+		//If the whole dialogue for the page hasnt been typed out yet
 		else 
 			{
 		draw_char = text_length[page];	
@@ -69,15 +78,27 @@ draw_sprite_ext(textbox_sprite, textbox_image, _txtb_x, textbox_y, textbox_width
 //Options
 if draw_char == text_length[page] && page == page_number - 1
 	{
+		//Option selection
+		option_pos += keyboard_check_pressed(vk_down) - keyboard_check_pressed(vk_up);
+		option_pos = clamp(option_pos, 0, option_number - 1);
+		if option_pos > (option_number - 1) { option_pos = 0; }
+		if option_pos < 0 { option_pos = option_number - 1; }
+		
 		
 		//Draw the options
 		var _op_space = 20;
-		var _op_bord = 8;
+		var _op_bord = 4;
 		for (var op = 0; op < option_number; op++)
 		{
 			//Option box
 			var _o_width = string_width(option[op]) + _op_bord*2;
-			draw_sprite_ext(textbox_sprite, textbox_image, _txtb_x+32, _txtb_y - _op_space*option_number + _op_space*op, _o_width/textbox_sprite_width, (_op_space-3)/textbox_sprite_height, 0, c_white, 1);
+			draw_sprite_ext(textbox_sprite, textbox_image, _txtb_x+16, _txtb_y - _op_space*option_number + _op_space*op, _o_width/textbox_sprite_width, (_op_space-3)/textbox_sprite_height, 0, c_white, 1);
+			
+			//Draw the arrow next to the selected option
+			if option_pos == op
+			{
+				draw_sprite(spr_textbox_arrow, 0, _txtb_x,  _txtb_y - _op_space*option_number + _op_space*op);
+			}
 			
 			//Draw the option text
 			draw_text(_txtb_x + 16 + _op_bord,  _txtb_y - _op_space*option_number + _op_space*op + 2, option[op]);
