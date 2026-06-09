@@ -323,6 +323,6 @@ if hp <= 0 {
 	room_restart();	
 }
 
-if keyboard_check_pressed(vk_control) {
+if keyboard_check_pressed(ord("M")) {
 	room_goto(0);	
 }
