@@ -2,7 +2,10 @@
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
   "name": "obj_titlemenu",
-  "spriteId": null,
+  "spriteId": {
+    "name": "spr_textbox",
+    "path": "sprites/spr_textbox/spr_textbox.yy",
+  },
   "solid": false,
   "visible": true,
   "managed": true,
