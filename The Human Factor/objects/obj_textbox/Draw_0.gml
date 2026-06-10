@@ -14,15 +14,81 @@ if setup == false
 	
 	//Loop through the pages
 	for(var p = 0; p < page_number; p++)
-	{
+		{
 		//Find how many characters are on each page and store that number in the "text_length" array
 		text_length[p] = string_length(text[p]);
 		
 		//Get the x position for the textbox
 			//If there are no characters, center the textbox
 			text_x_offset[p] = 128;
+			
+		//Setting individual characters and finding where the lines of text should break
+		for (var c = 0; c < text_length[p]; c++)
+			{
+				
+				var _char_pos = c + 1;
+				
+				//Store individual characters in the "char" array
+				char[c, p] = string_char_at(text[p], _char_pos);
+				
+				//Get current iwdth of the line that we're typing
+				var _text_up_to_char = string_copy(text[p], 1, _char_pos);
+				var _current_text_width = string_width(_text_up_to_char) - string_width(char[c, p]);
+				
+				//Get the last free space
+				if char[c, p] == " " {last_free_space = _char_pos + 1 }
+				
+				//Get the line breaks
+				if _current_text_width - line_break_offset[p] > line_width
+					{
+						
+						line_break_pos[line_break_num[p], p] = last_free_space;
+						line_break_num[p]++;
+						var _text_up_to_last_space = string_copy(text[p], 1, last_free_space);
+						var _last_free_space_string = string_char_at(text[p], last_free_space);
+						line_break_offset[p] = string_width(_text_up_to_last_space) - string_width(_last_free_space_string);
+						
+					}
+				
+			}
+			
+			//Getting each character's coordinate
+			for (var c = 0; c < text_length[p]; c++)
+			{
+				
+				var _char_pos = c + 1;
+				var _text_x = textbox_x + text_x_offset[p] + border;
+				var _text_y = textbox_y + border;
+				//Get current width of the line that we're typing
+				var _text_up_to_char = string_copy(text[p], 1, _char_pos);
+				var _current_text_width = string_width(_text_up_to_char) - string_width(char[c, p]);
+				var _text_line = 0;
+				
+				//Compensate for string breaks
+				for (var lb = 0; lb < line_break_num[p]; lb++;)
+					{
+					
+						//If the current looping character is after a line break
+						if _char_pos >= line_break_pos[lb, p]
+							{
+							
+							var _str_copy = string_copy(text[p], line_break_pos[lb, p], _char_pos-line_break_pos[lb, p]);
+							_current_text_width = string_width(_str_copy);
+							
+							//Record the "line" this character should be on
+							_text_line = lb+1;	//+1 since lb starts at 0
+							
+							}
+					
+					}
+					
+					//Add to the x and y coords based on the new info
+					char_x[c, p] = _text_x + _current_text_width;
+					char_y[c, p] = _text_y + _text_line*line_sep;
+				
+			}
 		
-	}
+		}
 	
 }
 
@@ -107,8 +173,13 @@ if draw_char == text_length[page] && page == page_number - 1
 	}
 
 //Draw the text now
-var _drawtext = string_copy(text[page], 1, draw_char);
-draw_text_ext(_txtb_x+border, _txtb_y+border, _drawtext, line_sep, line_width);
+for(var c = 0; c < draw_char; c++)
+	{
+	
+		//The text
+		draw_text(char_x[c, page], char_y[c, page], char[c, page]);
+
+	}
 
 
 
