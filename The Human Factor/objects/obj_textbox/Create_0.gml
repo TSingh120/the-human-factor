@@ -7,7 +7,7 @@ textbox_height = 128;
 border = 8;
 line_sep = 12;
 line_width = textbox_width - border*2;
-textbox_sprite = spr_textbox;
+textbox_sprite[0] = spr_textbox;
 textbox_image = 0;
 textbox_image_speed = 0/60;	//Animation speed of the textbox sprite divided by the speed of the game
 

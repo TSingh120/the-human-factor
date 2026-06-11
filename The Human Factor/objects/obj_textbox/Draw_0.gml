@@ -19,8 +19,18 @@ if setup == false
 		text_length[p] = string_length(text[p]);
 		
 		//Get the x position for the textbox
+			//Character on the left side
+			text_x_offset[p] = 144;
+			portrait_x_offset[p] = 32;
+			//If character on the right
+			if speaker_side[p] == -1 {
+				text_x_offset[p] = 32;
+				portrait_x_offset[p] = 544;
+			}			
 			//If there are no characters, center the textbox
-			text_x_offset[p] = 128;
+			if speaker_sprite[p] == noone {
+				text_x_offset[p] = 128;
+			}
 			
 		//Setting individual characters and finding where the lines of text should break
 		for (var c = 0; c < text_length[p]; c++)
@@ -136,10 +146,22 @@ if accept_key
 var _txtb_x = textbox_x + text_x_offset[page];
 var _txtb_y = textbox_y;
 textbox_image += textbox_image_speed;
-textbox_sprite_width = sprite_get_width(textbox_sprite);
-textbox_sprite_height = sprite_get_height(textbox_sprite);
+textbox_sprite_width = sprite_get_width(textbox_sprite[page]);
+textbox_sprite_height = sprite_get_height(textbox_sprite[page]);
+
+//Draw the speaker or character
+if speaker_sprite[page] != noone{
+	
+	sprite_index = speaker_sprite[page];
+	var _speaker_x = textbox_x + portrait_x_offset[page];
+	if speaker_side[page] == -1 { _speaker_x += sprite_width }   //Can change the sprite width to the width of the sprite in numerical values if need be
+	//Draw the sprite for the speaker
+	draw_sprite_ext(textbox_sprite[page], textbox_image, textbox_x + portrait_x_offset[page], textbox_y, 96/textbox_sprite_width, 96/textbox_sprite_height, 0, c_white, 1);
+	draw_sprite_ext(sprite_index, image_index, _speaker_x, textbox_y, speaker_side[page], 1, 0, c_white, 1);
+
+}
 //Back of the textbox
-draw_sprite_ext(textbox_sprite, textbox_image, _txtb_x, textbox_y, textbox_width/textbox_sprite_width, textbox_height/textbox_sprite_height, 0, c_white, 1);
+draw_sprite_ext(textbox_sprite[page], textbox_image, _txtb_x, textbox_y, textbox_width/textbox_sprite_width, textbox_height/textbox_sprite_height, 0, c_white, 1);
 
 //Options
 if draw_char == text_length[page] && page == page_number - 1
@@ -158,7 +180,7 @@ if draw_char == text_length[page] && page == page_number - 1
 		{
 			//Option box
 			var _o_width = string_width(option[op]) + _op_bord*2;
-			draw_sprite_ext(textbox_sprite, textbox_image, _txtb_x+16, _txtb_y - _op_space*option_number + _op_space*op, _o_width/textbox_sprite_width, (_op_space-3)/textbox_sprite_height, 0, c_white, 1);
+			draw_sprite_ext(textbox_sprite[page], textbox_image, _txtb_x+16, _txtb_y - _op_space*option_number + _op_space*op, _o_width/textbox_sprite_width, (_op_space-3)/textbox_sprite_height, 0, c_white, 1);
 			
 			//Draw the arrow next to the selected option
 			if option_pos == op
