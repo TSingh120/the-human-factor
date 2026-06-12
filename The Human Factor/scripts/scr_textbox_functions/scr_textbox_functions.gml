@@ -4,11 +4,71 @@ function scr_set_defaults_for_text()
 	line_break_num[page_number] = 0;
 	line_break_offset[page_number] = 0;
 	
+	//Variables for every letter/character
+	for (var c = 0; c < 500; c++)
+		{
+		
+			color_1[c, page_number] = c_white;
+			color_2[c, page_number] = c_white;
+			color_3[c, page_number] = c_white;
+			color_4[c, page_number] = c_white;
+			
+			float_text[c, page_number] = 0;
+			float_dir[c, page_number] = c*20;
+			
+			shake_text[c, page_number] = 0;
+			shake_dir[c, page_number] = irandom(360);
+			shake_timer[c, page_number] = irandom(4);
+		
+		}
+		
 	textbox_sprite[page_number] = spr_textbox;
 	speaker_sprite[page_number] = noone;
 	speaker_side[page_number] = 1;
 	snd[page_number] = snd_midtext;
 }
+
+//Text vfx
+/// @param first_char
+/// @param last_char
+/// @param color_1
+/// @param color_2
+/// @param color_3
+/// @param color_4
+function scr_text_color(_start, _end, _color1, _color2, _color3, _color4){
+	
+		for (var c = _start; c <= _end; c++)
+			{
+				color_1[c, page_number-1] = _color1;
+				color_2[c, page_number-1] = _color2;
+				color_3[c, page_number-1] = _color3;
+				color_4[c, page_number-1] = _color4;
+			}
+
+	}
+	
+/// @param first_char
+/// @param last_char
+function scr_text_float(_start, _end){
+	
+	for (var c = _start; c <= _end; c++)
+			{
+				float_text[c, page_number-1] = true;
+			}
+	
+}
+
+/// @param first_char
+/// @param last_char
+function scr_text_shake(_start, _end){
+	
+	for (var c = _start; c <= _end; c++)
+			{
+				shake_text[c, page_number-1] = true;
+			}
+	
+}
+	
 
 /// @param text
 /// @param [character]

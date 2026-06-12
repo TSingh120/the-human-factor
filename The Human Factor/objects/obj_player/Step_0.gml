@@ -316,13 +316,22 @@ else
 	
 //If outside the room
 if (obj_player.y > room_height + 50 || obj_player.y < -room_height - 50) || (obj_player.x > room_width + 50 || obj_player.y < -room_width - 50) {
+	x = obj_spawnpoint.x;
+	y = obj_spawnpoint.y;
 	room_restart();	
 }
 
 if hp <= 0 {
+	x = obj_spawnpoint.x;
+	y = obj_spawnpoint.y;
 	room_restart();	
+	
 }
 
-if keyboard_check_pressed(vk_control) {
+if keyboard_check_pressed(vk_escape) {
 	room_goto(0);	
+}
+
+if keyboard_check_pressed(vk_escape) {
+	room_goto(Room_titlescreen);	
 }
