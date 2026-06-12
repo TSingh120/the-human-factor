@@ -7,10 +7,12 @@ function scr_set_defaults_for_text()
 	textbox_sprite[page_number] = spr_textbox;
 	speaker_sprite[page_number] = noone;
 	speaker_side[page_number] = 1;
+	snd[page_number] = snd_midtext;
 }
 
 /// @param text
 /// @param [character]
+/// @param [side]
 function scr_text(_text){
 	
 	scr_set_defaults_for_text();
@@ -25,14 +27,33 @@ function scr_text(_text){
 			case "Leon":
 				speaker_sprite[page_number] = spr_leonprofile;
 				textbox_sprite[page_number] = spr_textbox;
+				snd[page_number] = snd_midtext;
+				break;
+				
+			case "Leon surprised":
+				speaker_sprite[page_number] = spr_leonsurprise;
+				textbox_sprite[page_number] = spr_textbox;
+				snd[page_number] = snd_hightext;
 				break;
 				
 			case "Wesker":
 				speaker_sprite[page_number] = spr_weskerprofile;
 				textbox_sprite[page_number] = spr_textboxred;
+				snd[page_number] = snd_lowtext;
+				break;
+				
+			case "Wesker smirk":
+				speaker_sprite[page_number] = spr_weskersmirk;
+				textbox_sprite[page_number] = spr_textboxred;
+				snd[page_number] = snd_hightext;
 				break;
 				
 		}
+	}
+	
+	//Side the character is on
+	if argument_count > 2 {
+		speaker_side[page_number] = argument[2];	
 	}
 	
 	page_number++;

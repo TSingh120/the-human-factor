@@ -105,10 +105,39 @@ if setup == false
 
 
 //Typing the text
-if draw_char < text_length[page] 
+if text_pause_timer <= 0 
 {
+if draw_char < text_length[page] 
+	{
 		draw_char += text_speed;
 		draw_char = clamp(draw_char, 0, text_length[page]);
+		var _check_char = string_char_at(text[page], draw_char);
+		if _check_char == "." || _check_char == "?" || _check_char == ","
+			{
+				
+				text_pause_timer = text_pause_time;
+				if !audio_is_playing(snd[page]) {
+				audio_play_sound(snd[page], 8, false);
+				}
+				
+			} 
+			else 
+				{
+				
+					//Typing sound
+					if snd_count < snd_delay {
+						snd_count++;	
+					}
+						else {
+							snd_count = 0;
+							audio_play_sound(snd[page], 8, false);
+						}
+				
+				}
+	}
+}
+else {
+	text_pause_timer--;	
 }
 
 //Move through the pages
@@ -153,6 +182,7 @@ textbox_sprite_height = sprite_get_height(textbox_sprite[page]);
 if speaker_sprite[page] != noone{
 	
 	sprite_index = speaker_sprite[page];
+	if draw_char == text_length[page] { image_index = 0 };
 	var _speaker_x = textbox_x + portrait_x_offset[page];
 	if speaker_side[page] == -1 { _speaker_x += sprite_width }   //Can change the sprite width to the width of the sprite in numerical values if need be
 	//Draw the sprite for the speaker
