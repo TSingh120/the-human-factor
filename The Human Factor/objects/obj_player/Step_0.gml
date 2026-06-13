@@ -314,24 +314,20 @@ else
 }
 	
 	
-//If outside the room
-if (obj_player.y > room_height + 50 || obj_player.y < -room_height - 50) || (obj_player.x > room_width + 50 || obj_player.y < -room_width - 50) {
-	x = obj_spawnpoint.x;
-	y = obj_spawnpoint.y;
-	room_restart();	
-}
-
-if hp <= 0 {
-	x = obj_spawnpoint.x;
-	y = obj_spawnpoint.y;
-	room_restart();	
-	
-}
-
-if keyboard_check_pressed(vk_escape) {
-	room_goto(0);	
-}
-
+//To go to first level
 if keyboard_check_pressed(vk_escape) {
 	room_goto(Room_titlescreen);	
+}
+if keyboard_check_pressed(vk_control) {
+	room_goto(room_dialoguetest);	
+}
+
+//Destroy if in the title screen level
+if room == Room_titlescreen
+{
+	instance_destroy(obj_player);
+}
+if room == room_dialoguetest
+{
+	instance_destroy(obj_player);
 }

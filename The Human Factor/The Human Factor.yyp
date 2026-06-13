@@ -116,6 +116,7 @@
     {"id":{"name":"spr_villageprops","path":"sprites/spr_villageprops/spr_villageprops.yy",},"order":31,},
     {"id":{"name":"spr_playerattack2","path":"sprites/spr_playerattack2/spr_playerattack2.yy",},"order":9,},
     {"id":{"name":"obj_player","path":"objects/obj_player/obj_player.yy",},"order":0,},
+    {"id":{"name":"obj_enemyminiboss","path":"objects/obj_enemyminiboss/obj_enemyminiboss.yy",},"order":18,},
     {"id":{"name":"obj_warp_door","path":"objects/obj_warp_door/obj_warp_door.yy",},"order":11,},
     {"id":{"name":"spr_mainfont","path":"sprites/spr_mainfont/spr_mainfont.yy",},"order":1,},
     {"id":{"name":"obj_enemy","path":"objects/obj_enemy/obj_enemy.yy",},"order":5,},
