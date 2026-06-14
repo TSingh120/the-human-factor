@@ -10,7 +10,8 @@ iframes = 0;
 detection_range = 400;
 jump_count = 0;
 
-hp = 100;
+max_hp = 100;
+hp = max_hp;
 state = "idle";
 action_timer = 0;
 faction = "hostile";
