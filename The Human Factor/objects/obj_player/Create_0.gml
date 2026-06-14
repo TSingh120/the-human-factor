@@ -78,7 +78,8 @@ wall_jump_control_loss = 5; //Frames before player regains steering
 //Combat stuff
 state = "idle";
 action_timer = 0; //tracking how long a dude is stuck in a state
-hp = 100;
+max_hp = 100;
+hp = max_hp;
 iframes = 0;
 faction = "player";
 damage = 20;

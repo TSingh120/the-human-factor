@@ -20,8 +20,8 @@ faction = "hostile";
 knockback_speed = 0;
 jumping_duration = 0;
 damage = 15;
-stunned_timer = 180;
-countered_timer = 90;
+stunned_timer = irandom_range(90, 210);
+countered_timer = irandom_range(40, 100);
 
 victim = obj_player;
 decision_cooldown = 30;

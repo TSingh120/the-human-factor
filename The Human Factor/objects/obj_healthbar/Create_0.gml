@@ -1,3 +1,5 @@
+if !instance_exists(obj_enemyminiboss) { return }
+
 health_points_max = obj_enemyminiboss.max_hp;
 health_points = health_points_max;
 health_points_prev = health_points_max;

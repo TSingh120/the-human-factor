@@ -167,6 +167,7 @@ else if (state == "stunned")
 {
 	action_timer--;
 	if (action_timer <= 0) state = "idle";
+	x_speed = 0;
 }
 
 
