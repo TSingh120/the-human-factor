@@ -3,8 +3,8 @@
   "resourceVersion": "1.0",
   "name": "obj_enemyminiboss",
   "spriteId": {
-    "name": "spr_enemy",
-    "path": "sprites/spr_enemy/spr_enemy.yy",
+    "name": "spr_minibossidle",
+    "path": "sprites/spr_minibossidle/spr_minibossidle.yy",
   },
   "solid": false,
   "visible": true,

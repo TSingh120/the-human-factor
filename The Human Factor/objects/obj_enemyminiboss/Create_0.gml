@@ -11,7 +11,7 @@ iframes = 0;
 detection_range = 400;
 jump_count = 0;
 
-max_hp = 500;
+max_hp = 750;
 hp = max_hp;
 phase = 1;
 state = "idle";
@@ -24,4 +24,4 @@ stunned_timer = 180;
 countered_timer = 90;
 
 victim = obj_player;
-decision_cooldown = 60;
+decision_cooldown = 30;
