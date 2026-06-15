@@ -99,6 +99,11 @@ if setup == false
 			}
 		
 		}
+		//Voice lines
+		 if (voice_line[0] != noone)
+		{
+        current_voice = audio_play_sound(voice_line[0], 10, false);
+		}
 	
 }
 
@@ -151,6 +156,12 @@ if accept_key
 			{
 				page++;
 				draw_char = 0;
+				// Stop the playing one and play the next voice line
+				if (current_voice != noone) { audio_stop_sound(current_voice); }
+				if (voice_line[page] != noone) 
+					{
+						current_voice = audio_play_sound(voice_line[page], 10, false);
+					}
 			}
 			//Destroying/Exiting the textbox once out of pages
 			else 
@@ -160,6 +171,7 @@ if accept_key
 				{
 					create_textbox(option_link_id[option_pos]);	
 				}
+				if (current_voice != noone) { audio_stop_sound(current_voice) }
 				instance_destroy();
 			}
 		}
@@ -256,32 +268,3 @@ for(var c = 0; c < draw_char; c++)
 		draw_text_color(char_x[c, page] + _shake_x, char_y[c, page] + _float_y + _shake_y, char[c, page], color_1[c, page], color_2[c, page], color_3[c, page], color_4[c, page], 1);
 
 	}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	
-	
-	
-	

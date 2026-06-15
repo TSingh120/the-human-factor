@@ -44,7 +44,9 @@ else if state == "winding" {
 		action_timer = irandom_range(40, 70); // 60 frames of follow-through swing
 		image_index = 0;   // Reset animation for the swing
 		audio_play_sound(snd_swordwhoosh, 5, false);
+		
 	}
+	
 }
 else if (state == "attacking") 
 {
