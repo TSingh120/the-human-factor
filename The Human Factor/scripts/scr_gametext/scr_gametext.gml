@@ -51,6 +51,57 @@ function scr_gametext(_text_id){
 			scr_text_color(1, 12, c_blue, c_blue, c_blue, c_blue);
 		break;
 		
+		case "Waking" :
+		scr_text("Ahhh it feels nice to be walking around again. Good to be back. Let me take a look around.")
+			scr_text_float(1, 5)
+		
+		case "Radio station" :
+		scr_text("Let me try talking to an ally.")
+		scr_text("*BZZZT")
+		scr_text("GAH! This one's fried. I'll have to use another one.")
+			scr_text_shake(1, 5)
+			scr_text_float(16, 22)
+			
+		case "First contact" :
+		scr_text("Kian, are you there?");
+		scr_text("Yes, I'm here. Good morning, sir.", "Chris")
+			scr_text_color(1, 3, c_lime, c_lime, c_lime, c_lime)
+		scr_text("Oh yes. This one's working. Good to see you're still alive and that you've stuck around.")
+		scr_text("I had to.", "Chris look")
+			scr_text_color(2, 5, c_red, c_red, c_white, c_white)
+		scr_text("Yes, you had to.")
+		
+		case "First enemies" :
+		scr_text("That's a warm welcome. How's everything else been.")
+			scr_text_float(9, 14);
+			scr_text_color(9, 14, c_orange, c_orange, c_orange, c_orange)
+		scr_text("It's crumbling. We're holding on, but we're stuck in a stalemate. Maybe the tides will change now that you're back.", "Chris look")
+			scr_text_color(55, 64, c_aqua, c_aqua, c_aqua, c_aqua)
+			
+		case "Approaching boss" :
+		scr_text("It seems like someone's blocking my path.")
+		scr_text("Turn back", "Wesker smirk", -1)
+		scr_text("I think I want a second opinion.")
+		scr_text("I will not hesitate in my attacks.", "Wesker smirk", -1)
+			scr_text_shake(11, 19)
+		scr_text("I'll finish what's been started.")
+		
+		case "After bossfight" :
+		scr_text("GAH! I WILL MAKE YOU PAY.", "Wesker", -1)
+			scr_text_shake(7 ,24)
+		scr_text("Sorry, but I'm a little tight on cash.")
+			scr_text_float(1, 6)
+		scr_text("N-no.. y-you, *cough* you can't just walk away free.", "Wesker", -1)
+		scr_text("Well, I guess my card declined.")
+			scr_text_float(17, 31)
+		scr_text("They will devour you for the consequences of your own actions.", "Wesker", -1)
+			scr_text_shake(5, 20)
+			scr_text_color(35, 52, c_red, c_red, c_red, c_red)
+		scr_text("Devour? Sorry, but I'm not on the menu.")
+		
+		//case "Interception" :
+		
+		
 	}
 
 }

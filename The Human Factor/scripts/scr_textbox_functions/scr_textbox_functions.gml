@@ -26,6 +26,7 @@ function scr_set_defaults_for_text()
 	speaker_sprite[page_number] = noone;
 	speaker_side[page_number] = 1;
 	snd[page_number] = snd_midtext;
+	voice_line[page_number] = noone;
 }
 
 //Text vfx
@@ -73,6 +74,7 @@ function scr_text_shake(_start, _end){
 /// @param text
 /// @param [character]
 /// @param [side]
+/// @param [voice_line]
 function scr_text(_text){
 	
 	scr_set_defaults_for_text();
@@ -108,6 +110,24 @@ function scr_text(_text){
 				snd[page_number] = snd_hightext;
 				break;
 				
+			case "Chris":
+				speaker_sprite[page_number] = spr_chrisprofile;
+				textbox_sprite[page_number] = spr_textbox;
+				snd[page_number] = snd_lowtext;
+				break;				
+					
+			case "Chris look":
+				speaker_sprite[page_number] = spr_chrisprofile2;
+				textbox_sprite[page_number] = spr_textbox;
+				snd[page_number] = snd_lowtext;
+				break;
+				
+		}
+		
+		// Voice line audio file
+		if argument_count > 3 
+		{
+			voice_line[page_number] = argument[3];	
 		}
 	}
 	
