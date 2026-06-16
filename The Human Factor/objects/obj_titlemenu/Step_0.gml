@@ -24,7 +24,7 @@ if accept_key{
 					case 1: menu_level = 1;
 					break;
 					//credits
-					case 2:
+					case 2: menu_level = 2;
 					break;
 					//quit game
 					case 3: game_end();
@@ -44,6 +44,24 @@ if accept_key{
 					break;
 					//back to the main starting menu
 					case 3: menu_level = 0;
+					break;
+				}
+				
+			case 2 : switch(pos){
+					//music volume
+					case 0:  
+					break;
+					//sfx volume
+					case 1:
+					break;
+					//toggle shaders
+					case 2:
+					break;
+					//back to the main starting menu
+					case 3:
+					break;
+					
+					case 4: menu_level = 0;
 					break;
 				}
 	}
