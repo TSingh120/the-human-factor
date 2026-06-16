@@ -17,6 +17,7 @@ if accept_key{
 	switch(menu_level){
 		//Starting
 		case 0 : switch(pos){
+					//Play
 					case 0: room_goto_next(); 
 					break;
 					//settings

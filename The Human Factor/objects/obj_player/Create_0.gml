@@ -85,3 +85,4 @@ faction = "player";
 damage = 20;
 stunned_timer = 90;
 countered_timer = 60;
+has_key = false;

@@ -7,7 +7,7 @@
     "path": "sprites/spr_speakblock/spr_speakblock.yy",
   },
   "solid": false,
-  "visible": true,
+  "visible": false,
   "managed": true,
   "spriteMaskId": null,
   "persistent": false,

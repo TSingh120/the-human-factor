@@ -1,3 +1,25 @@
+// --- 1. DRAW THE FROZEN GAMEPLAY BACKGROUND FIRST ---
+if (pause) 
+{
+    var _cam_x = camera_get_view_x(view_camera[0]);
+    var _cam_y = camera_get_view_y(view_camera[0]);
+    var _cam_w = camera_get_view_width(view_camera[0]);  // Get camera width
+    var _cam_h = camera_get_view_height(view_camera[0]); // Get camera height
+    
+    if (surface_exists(pause_surf)) 
+    {
+        // Stretch the surface to perfectly fit the camera lens
+        draw_surface_stretched(pause_surf, _cam_x, _cam_y, _cam_w, _cam_h);
+    }
+    else 
+    {
+        // Restore from buffer if we lost the surface
+        pause_surf = surface_create(res_w, res_h);
+        buffer_set_surface(pause_surfbuffer, pause_surf, 0);
+        draw_surface_stretched(pause_surf, _cam_x, _cam_y, _cam_w, _cam_h);
+    }
+}
+
 accept_key = keyboard_check_pressed(vk_space);
 
 textbox_x = camera_get_view_x(view_camera[0]);

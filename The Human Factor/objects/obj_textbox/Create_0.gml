@@ -42,3 +42,31 @@ text_pause_time = 16;
 
 //Voice
 current_voice = noone;
+
+pause = true; 
+pause_surf = -1;
+pause_surfbuffer = -1;
+
+res_w = 1366;
+res_h = 768;
+
+// Deactivate specific game objects
+instance_deactivate_object(obj_entity);
+instance_deactivate_object(obj_camera);
+instance_deactivate_object(obj_spawnpoint);
+instance_deactivate_object(obj_healthbar);
+instance_deactivate_object(obj_healthbarplayer);
+instance_deactivate_object(obj_guiscaler);
+
+
+
+// Capture this game moment
+pause_surf = surface_create(res_w, res_h);
+surface_set_target(pause_surf);
+    draw_surface(application_surface, 0, 0);
+surface_reset_target();
+
+// Back up this surface buffer
+if (buffer_exists(pause_surfbuffer)) buffer_delete(pause_surfbuffer);
+pause_surfbuffer = buffer_create(res_w * res_h * 4, buffer_fixed, 1);
+buffer_get_surface(pause_surfbuffer, pause_surf, 0);

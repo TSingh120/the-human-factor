@@ -52,56 +52,84 @@ function scr_gametext(_text_id){
 		break;
 		
 		case "Waking" :
-		scr_text("Ahhh it feels nice to be walking around again. Good to be back. Let me take a look around.")
-			scr_text_float(1, 5)
+		scr_text("Ahhh this feels nice to be walking around again. It's good to be back. Let me take a look around. Let me try pressing W A S D to move around. (And R to restart)", noone, 0, vl_player1)
+			scr_text_float(1, 4)
+			scr_text_color(109, 170, c_yellow, c_yellow, c_yellow, c_yellow)
+		break;
 		
 		case "Radio station" :
-		scr_text("Let me try talking to an ally.")
-		scr_text("*BZZZT")
-		scr_text("GAH! This one's fried. I'll have to use another one.")
-			scr_text_shake(1, 5)
-			scr_text_float(16, 22)
+		scr_text("Kian, what's your status? *BZZZT* Damn it. I have to try to establish contact with him.", noone, 0, vl_player2)
+			scr_text_shake(26, 33)
+			break;
 			
 		case "First contact" :
-		scr_text("Kian, are you there?");
+		scr_text("Kian, hello? Are you there?", noone, 0, vl_player3);
 		scr_text("Yes, I'm here. Good morning, sir.", "Chris")
 			scr_text_color(1, 3, c_lime, c_lime, c_lime, c_lime)
-		scr_text("Oh yes. This one's working. Good to see you're still alive and that you've stuck around.")
+		scr_text("Oh finally. You're still alive. It's nice to see you stuck around after all these years.", noone, 0, vl_player4)
 		scr_text("I had to.", "Chris look")
 			scr_text_color(2, 5, c_red, c_red, c_white, c_white)
-		scr_text("Yes, you had to.")
+		scr_text("Yeah, you did.", noone, 0, vl_player5)
+		break;
+		
+		case "Gap" :
+		scr_text("'Press I to dash?' What is this? A video game?", noone, 0, vl_player_dash)
+		break;
+		
+		case "Attack tutorial" :
+		scr_text("Press J to attack and L to block. Blocking during an enemy windup causes you to parry and attacking during enemy windup counters them.", noone, 0)
+		break;
 		
 		case "First enemies" :
-		scr_text("That's a warm welcome. How's everything else been.")
+		scr_text("That's a warm welcome. How's everything been?", noone, 0, vl_player6)
 			scr_text_float(9, 14);
 			scr_text_color(9, 14, c_orange, c_orange, c_orange, c_orange)
 		scr_text("It's crumbling. We're holding on, but we're stuck in a stalemate. Maybe the tides will change now that you're back.", "Chris look")
 			scr_text_color(55, 64, c_aqua, c_aqua, c_aqua, c_aqua)
+			break;
 			
 		case "Approaching boss" :
-		scr_text("It seems like someone's blocking my path.")
+		scr_text("It seems like someone's blocking my path.", noone, 0, vl_player7)
 		scr_text("Turn back", "Wesker smirk", -1)
-		scr_text("I think I want a second opinion.")
+		scr_text("I think I want a second opinion.", noone, 0, vl_player8)
 		scr_text("I will not hesitate in my attacks.", "Wesker smirk", -1)
 			scr_text_shake(11, 19)
-		scr_text("I'll finish what's been started.")
+		scr_text("I'll finish what's been started.", noone, 0, vl_player9)
+		break;
 		
 		case "After bossfight" :
 		scr_text("GAH! I WILL MAKE YOU PAY.", "Wesker", -1)
 			scr_text_shake(7 ,24)
-		scr_text("Sorry, but I'm a little tight on cash.")
+		scr_text("Sorry, but I'm a bit tight on cash.", noone, 0, vl_player10)
 			scr_text_float(1, 6)
 		scr_text("N-no.. y-you, *cough* you can't just walk away free.", "Wesker", -1)
-		scr_text("Well, I guess my card declined.")
+		scr_text("Well, I guess my card declined.", noone, 0, vl_player11)
 			scr_text_float(17, 31)
 		scr_text("They will devour you for the consequences of your own actions.", "Wesker", -1)
 			scr_text_shake(5, 20)
 			scr_text_color(35, 52, c_red, c_red, c_red, c_red)
-		scr_text("Devour? Sorry, but I'm not on the menu.")
+		scr_text("Devour? Sorry, but I'm not on the menu.", noone, 0, vl_player12)
+		break;
 		
-		//case "Interception" :
-		
-		
+		case "Interception" :
+		scr_text("I just beat someone up, this is great.", noone, 0, vl_player13)
+			scr_text_float(33, 39)
+		scr_text("Do you think what he said is true?", "Chris look")
+		scr_text("Sure, whatever you say.", noone, 0, vl_player14)
+		scr_text("Sir pl-", "Chris look")
+		scr_text("BZZT")
+			scr_text_shake(1,5)
+		scr_text("You aren't Leonard.", "Saddler", -1)
+		scr_text("Yeah, I'm not. He's ... on a break... permanently.", noone, 0, vl_player15)
+		scr_text("It seems that way, huh.", "Saddler", -1,)
+		scr_text("Why don't all of you just surrender and let me fix things.", noone, 0, vl_player16)
+			scr_text_color(40, 58, c_red, c_red, c_orange, c_orange)
+		scr_text("Your confidence is overflowing after killing a small time subordinate. You have no idea what power I possess.", "Saddler smirk", -1)
+		scr_text("Edmund. You're small time.", noone, 0, vl_player17)
+			scr_text_float(8, 14)
+		scr_text("No response huh?. Seems like the demo ended. Don't even have a voice line for this one. And the rooms a copy of the last one too. Sad.")
+			break;
+
 	}
 
 }

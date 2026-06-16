@@ -1,4 +1,3 @@
-//disable alpha blending	 (we just want rgb from screen)
 gpu_set_blendenable(false);
 
 if (pause) //draw the frozen image to the screen while paused
@@ -7,13 +6,13 @@ if (pause) //draw the frozen image to the screen while paused
 		if (surface_exists(pause_surf)) draw_surface(pause_surf, 0, 0);
 		else //restore from buffer if we lost the surface
 		{
-			pause_surf = surface_create(res_w, res_h);
-			buffer_set_surface(pause_surfbuffer, pause_surf, 0);
+					pause_surf = surface_create(res_w, res_h);
+					buffer_set_surface(pause_surfbuffer, pause_surf, 0);
 		}
-	surface_reset_target();
-}
-
-if (keyboard_check_pressed(vk_backspace)) //Toggle pause (whatever condition/trigger you like)
+			surface_reset_target();
+		}
+		
+if (keyboard_check_pressed(vk_backspace))	//Toggle pause (whatever condition/trigger you like)
 {
 	if (!pause) //pause now
 	{
@@ -46,4 +45,43 @@ if (keyboard_check_pressed(vk_backspace)) //Toggle pause (whatever condition/tri
 }
 
 //Enable alpha blending again
-gpu_set_blendenable(true);
+gpu_set_blendenable(true);		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

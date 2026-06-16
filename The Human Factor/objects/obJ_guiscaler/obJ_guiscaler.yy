@@ -1,7 +1,7 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "obJ_guiscaler",
+  "name": "obj_guiscaler",
   "spriteId": null,
   "solid": false,
   "visible": true,

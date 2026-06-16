@@ -327,7 +327,3 @@ if room == Room_titlescreen
 {
 	instance_destroy(obj_player);
 }
-if room == room_dialoguetest
-{
-	instance_destroy(obj_player);
-}

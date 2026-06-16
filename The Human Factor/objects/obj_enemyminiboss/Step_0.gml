@@ -266,5 +266,5 @@ if (!on_ground) {
 	else if state == "idle" && !on_ground { sprite_index = spr_minibossjump }
 	
 	if hp <= 0 {
-		instance_destroy();	
+		instance_destroy();
 	}
