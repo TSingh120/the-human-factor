@@ -126,16 +126,19 @@ function scr_text(_text){
 				speaker_sprite[page_number] = spr_saddlerprofile;
 				textbox_sprite[page_number] = spr_textboxred;
 				snd[page_number] = snd_midtext;
+				break;
 				
 			case "Saddler smirk" :
 				speaker_sprite[page_number] = spr_saddlerprofile2;
 				textbox_sprite[page_number] = spr_textboxred;
 				snd[page_number] = snd_hightext;
+				break;
 				
 			case "Sign" :
 				speaker_sprite[page_number] = spr_signprofile;
 				textbox_sprite[page_number] = spr_textbox;
 				snd[page_number] = snd_lowtext;
+				break;
 				
 		}
 		
