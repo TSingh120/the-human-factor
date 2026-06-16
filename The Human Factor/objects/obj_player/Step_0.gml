@@ -318,9 +318,6 @@ else
 if keyboard_check_pressed(vk_escape) {
 	room_goto(Room_titlescreen);	
 }
-if keyboard_check_pressed(vk_control) {
-	room_goto(room_dialoguetest);	
-}
 
 //Destroy if in the title screen level
 if room == Room_titlescreen

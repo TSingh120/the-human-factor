@@ -29,6 +29,9 @@ if accept_key{
 					//quit game
 					case 3: game_end();
 					break;
+					
+					case 4:
+					break;
 				}
 				break;
 		//settings 

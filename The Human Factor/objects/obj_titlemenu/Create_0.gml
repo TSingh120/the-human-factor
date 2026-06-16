@@ -11,6 +11,7 @@ option[0, 0] = "Play";
 option[0, 1] = "Setting(s) (They don't do anything.)";
 option[0, 2] = "Credits";
 option[0, 3] = "Quit Game";
+option[0, 4] = "Press BACKSPACE to pause (in game)";
 
 //settings
 option[1, 0] = "Music Volume";
@@ -20,7 +21,7 @@ option[1, 3] = "< Back";
 
 //Credits
 option[2, 0] = "Player voiced by Sukhman";
-option[2, 1] = "Kian voiced by Kian";
+option[2, 1] = "Kian voiced by Kian (Hopefully)";
 option[2, 2] = "Leonard voiced by Ishmeet";
 option[2, 3] = "Edmund voiced by someone (I dunno yet).";
 option[2, 4] = "< Back";

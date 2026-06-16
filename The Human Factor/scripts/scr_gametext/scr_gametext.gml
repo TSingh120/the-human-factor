@@ -128,7 +128,7 @@ function scr_gametext(_text_id){
 		scr_text("Your confidence is overflowing after killing a small time subordinate. You have no idea what power I possess.", "Saddler smirk", -1)
 		scr_text("Edmund. You're small time.", noone, 0, vl_player17)
 			scr_text_float(8, 14)
-		scr_text("No response huh?. Seems like the demo ended. Don't even have a voice line for this one. And the rooms a copy of the last one too. Sad.", noone, 0, sahursahur)
+		scr_text("No response huh?. Seems like the demo ended. Don't even have a voice line for this one. And the rooms a copy of the last one too. Sad. Imma just uhhhh... uhh press escape probably? Hopefully.", noone, 0, sahursahur)
 			break;
 
 	}
