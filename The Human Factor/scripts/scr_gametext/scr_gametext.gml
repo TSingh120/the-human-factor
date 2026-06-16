@@ -52,13 +52,13 @@ function scr_gametext(_text_id){
 		break;
 		
 		case "Waking" :
-		scr_text("Ahhh this feels nice to be walking around again. It's good to be back. Let me take a look around. Let me try pressing W A S D to move around. (And R to restart)", noone, 0, vl_player1)
+		scr_text("Ahhh this feels nice to be walking around again. It's good to be back. Let me take a look around. Let me try pressing W A S D to move around. (And R to restart) [PRESS SPACE TO CONTINUE]", noone, 0, vl_player1)
 			scr_text_float(0, 4)
-			scr_text_color(109, 170, c_yellow, c_yellow, c_yellow, c_yellow)
+			scr_text_color(109, 250, c_yellow, c_yellow, c_yellow, c_yellow)
 		break;
 		
 		case "Radio station" :
-		scr_text("Kian, what's your status? *BZZZT* Damn it. I have to try to establish contact with him.", noone, 0, vl_player2)
+		scr_text("Kian, what's your status? *BZZZT* Damn it. I have to try to establish contact with him. Maybe I should try double jumping over this gap and then slide under the next one. Better remember to slide away if I get stuck though.", noone, 0, vl_player2)
 			scr_text_shake(26, 33)
 			break;
 			
@@ -82,30 +82,31 @@ function scr_gametext(_text_id){
 		
 		case "First enemies" :
 		scr_text("That's a warm welcome. How's everything been?", noone, 0, vl_player6)
-			scr_text_float(9, 14);
-			scr_text_color(9, 14, c_orange, c_orange, c_orange, c_orange)
+			scr_text_float(9, 13);
+			scr_text_color(9, 13, c_orange, c_orange, c_orange, c_orange)
 		scr_text("It's crumbling. We're holding on, but we're stuck in a stalemate. Maybe the tides will change now that you're back.", "Chris look")
 			scr_text_color(55, 64, c_aqua, c_aqua, c_aqua, c_aqua)
 			break;
 			
 		case "Approaching boss" :
 		scr_text("It seems like someone's blocking my path.", noone, 0, vl_player7)
-		scr_text("Turn back", "Wesker smirk", -1)
+		scr_text("Turn back", "Wesker smirk", -1, aw_1)
 		scr_text("I think I want a second opinion.", noone, 0, vl_player8)
-		scr_text("I will not hesitate in my attacks.", "Wesker smirk", -1)
+		scr_text("I will not hesitate in my attacks.", "Wesker smirk", -1, aw_2)
 			scr_text_shake(11, 19)
 		scr_text("I'll finish what's been started.", noone, 0, vl_player9)
+		scr_text("Very well. Time to pay. (Please don't wall jump anywhere so the boss doesn't glitch outside the room.", "Wesker smirk", -1, aw_3)
 		break;
 		
 		case "After bossfight" :
-		scr_text("GAH! I WILL MAKE YOU PAY.", "Wesker", -1)
+		scr_text("GAH! I WILL MAKE YOU PAY.", "Wesker", -1, aw_4)
 			scr_text_shake(7 ,24)
 		scr_text("Sorry, but I'm a bit tight on cash.", noone, 0, vl_player10)
 			scr_text_float(0, 6)
-		scr_text("N-no.. y-you, *cough* you can't just walk away free.", "Wesker", -1)
+		scr_text("No.. you can't just walk away free.", "Wesker", -1, aw_5)
 		scr_text("Well, I guess my card declined.", noone, 0, vl_player11)
 			scr_text_float(17, 31)
-		scr_text("They will devour you for the consequences of your own actions.", "Wesker", -1)
+		scr_text("They will devour you for the consequences of your own actions.", "Wesker", -1, aw_6)
 			scr_text_shake(5, 20)
 			scr_text_color(35, 52, c_red, c_red, c_red, c_red)
 		scr_text("Devour? Sorry, but I'm not on the menu.", noone, 0, vl_player12)
@@ -127,7 +128,7 @@ function scr_gametext(_text_id){
 		scr_text("Your confidence is overflowing after killing a small time subordinate. You have no idea what power I possess.", "Saddler smirk", -1)
 		scr_text("Edmund. You're small time.", noone, 0, vl_player17)
 			scr_text_float(8, 14)
-		scr_text("No response huh?. Seems like the demo ended. Don't even have a voice line for this one. And the rooms a copy of the last one too. Sad.")
+		scr_text("No response huh?. Seems like the demo ended. Don't even have a voice line for this one. And the rooms a copy of the last one too. Sad.", noone, 0, sahursahur)
 			break;
 
 	}
