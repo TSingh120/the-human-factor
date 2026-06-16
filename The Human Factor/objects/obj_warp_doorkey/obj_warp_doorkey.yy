@@ -7,7 +7,7 @@
     "path": "sprites/spr_player/spr_player.yy",
   },
   "solid": false,
-  "visible": false,
+  "visible": true,
   "managed": true,
   "spriteMaskId": null,
   "persistent": false,

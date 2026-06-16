@@ -11,7 +11,7 @@ iframes = 0;
 detection_range = 400;
 jump_count = 0;
 
-max_hp = 20;
+max_hp = 750;
 hp = max_hp;
 phase = 1;
 state = "idle";

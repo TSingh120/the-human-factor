@@ -53,7 +53,7 @@ function scr_gametext(_text_id){
 		
 		case "Waking" :
 		scr_text("Ahhh this feels nice to be walking around again. It's good to be back. Let me take a look around. Let me try pressing W A S D to move around. (And R to restart)", noone, 0, vl_player1)
-			scr_text_float(1, 4)
+			scr_text_float(0, 4)
 			scr_text_color(109, 170, c_yellow, c_yellow, c_yellow, c_yellow)
 		break;
 		
@@ -65,7 +65,7 @@ function scr_gametext(_text_id){
 		case "First contact" :
 		scr_text("Kian, hello? Are you there?", noone, 0, vl_player3);
 		scr_text("Yes, I'm here. Good morning, sir.", "Chris")
-			scr_text_color(1, 3, c_lime, c_lime, c_lime, c_lime)
+			scr_text_color(0, 3, c_lime, c_lime, c_lime, c_lime)
 		scr_text("Oh finally. You're still alive. It's nice to see you stuck around after all these years.", noone, 0, vl_player4)
 		scr_text("I had to.", "Chris look")
 			scr_text_color(2, 5, c_red, c_red, c_white, c_white)
@@ -101,7 +101,7 @@ function scr_gametext(_text_id){
 		scr_text("GAH! I WILL MAKE YOU PAY.", "Wesker", -1)
 			scr_text_shake(7 ,24)
 		scr_text("Sorry, but I'm a bit tight on cash.", noone, 0, vl_player10)
-			scr_text_float(1, 6)
+			scr_text_float(0, 6)
 		scr_text("N-no.. y-you, *cough* you can't just walk away free.", "Wesker", -1)
 		scr_text("Well, I guess my card declined.", noone, 0, vl_player11)
 			scr_text_float(17, 31)
@@ -118,7 +118,7 @@ function scr_gametext(_text_id){
 		scr_text("Sure, whatever you say.", noone, 0, vl_player14)
 		scr_text("Sir pl-", "Chris look")
 		scr_text("BZZT")
-			scr_text_shake(1,5)
+			scr_text_shake(0,5)
 		scr_text("You aren't Leonard.", "Saddler", -1)
 		scr_text("Yeah, I'm not. He's ... on a break... permanently.", noone, 0, vl_player15)
 		scr_text("It seems that way, huh.", "Saddler", -1,)
